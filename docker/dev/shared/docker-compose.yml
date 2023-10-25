@@ -1,0 +1,51 @@
+version: '3'
+services:
+  mysql:
+    image: 'mysql:8.0'
+    ports:
+      - '${FORWARD_DB_PORT:-3306}:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - 'sailmysql:/var/lib/mysql'
+    networks:
+      - sail
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping']
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - '${FORWARD_REDIS_PORT:-6379}:6379'
+    volumes:
+      - 'sailredis:/data'
+    networks:
+      - sail
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+
+  rso:
+    image: nginx:1.19.8
+    ports:
+      - '${FORWARD_RSO_PORT:-9212}:80'
+    volumes:
+      - '${RSO_VOLUME_DIR:-zirconrso}:/usr/share/nginx/html'
+
+networks:
+  sail:
+    external: true
+    name: zircon_ps_network
+
+volumes:
+  sailmysql:
+    driver: local
+  sailredis:
+    driver: local
+  sailmeilisearch:
+    driver: local
+  zirconrso:
+    external: true
+    name: zircon_rso

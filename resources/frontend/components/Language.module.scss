@@ -1,0 +1,104 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.imageWrapper {
+	display: inline-block;
+	width: 25%;
+	padding: $main_langIconSpacing;
+	line-height: 0;
+	cursor: pointer;
+	position: relative;
+
+	@media screen and (max-width: $main_tablet) {
+		padding: $main_standardSpace $main_langIconSpacingMobile;
+	}
+
+	&:active {
+		transform: scale(0.8);
+	}
+
+	&:hover {
+		.text {
+			opacity: 1;
+		}
+	}
+
+	&.disabled {
+		opacity: 0.5 !important;
+		transform: scale(1) !important;
+		filter: grayscale(60%);
+		cursor: not-allowed;
+
+		& .imageBox {
+			box-shadow: none;
+		}
+	}
+}
+
+.image,
+.imageBox {
+	width: 100%;
+}
+
+.imageBox {
+	overflow: hidden;
+}
+
+.text {
+	transition: $main_transition;
+	font-size: $main_standardSpace + 2px;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	text-align: center;
+	opacity: 0;
+}
+
+.loader {
+	> span {
+		border-radius: 50%;
+		margin: 0px !important;
+
+		+ span {
+			margin-left: $main_langIconSpacing * 2 !important;
+
+			@media screen and (max-width: $main_tablet) {
+				margin-left: $main_langIconSpacingMobile * 2 !important;
+			}
+		}
+	}
+}
+
+.dropdownLoader {
+	> span {
+		margin: 0px !important;
+	}
+}
+
+.langDropdown {
+	display: inline-block;
+
+	.langDropdownButton {
+		text-transform: none;
+		color: $colors_sText;
+
+		> span:first-child {
+			border-bottom: 1px solid rgba($colors_sText, 0.1);
+		}
+	}
+}
+
+.imageDropDown {
+	width: $main_fontSize + 4px;
+}
+
+.dropdownIcon {
+	min-width: $main_fontSize + 4px + ($main_standardSpace/2) !important;
+}
+
+.langText {
+	> * {
+		font-size: 1.4rem !important;
+	}
+}

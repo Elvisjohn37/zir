@@ -1,0 +1,1 @@
+*/5 * * * * wget -qO- --header="Accept: application/json" --post-data='' http://zircon_ps/lastactivity

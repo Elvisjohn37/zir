@@ -1,0 +1,45 @@
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_keyframes';
+
+.home {
+	background-image: url('frontend/assets/images/home/bsiBackground.png');
+	background-size: contain;
+
+	.homeMainBanner {
+		width: 100%;
+		@include colors_secondary(0.95);
+		background-size: contain;
+
+		.topGamesContainer {
+			margin: $main_standardSpace;
+			overflow: hidden;
+		}
+	}
+
+	.homeGameList {
+		border: 1px solid #000;
+	}
+
+	.newGamesContainer {
+		padding-right: 0px;
+	}
+
+	.homegameTypes {
+		@include colors_sDark;
+		overflow: hidden;
+		padding: 0px $main_standardSpace * 2;
+	}
+
+	.homeTopGames {
+		padding-bottom: $main_standardSpace * 2;
+		@include colors_sDark;
+		overflow: hidden;
+	}
+
+	.homegameTypes {
+		padding: 0;
+		background: $colors_secondary;
+	}
+}

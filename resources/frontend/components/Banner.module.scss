@@ -1,0 +1,106 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_colors';
+
+.placeholder {
+	width: 100%;
+	position: relative;
+
+	img {
+		opacity: 0;
+	}
+
+	.loader {
+		padding: 0px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 100%;
+
+		> span {
+			border-radius: 0% !important;
+			margin: 0px !important;
+			display: block;
+			height: 100%;
+		}
+	}
+}
+
+.bannerImg,
+.realImg {
+	width: 100%;
+}
+
+.bannerItem {
+	line-height: 0;
+	width: 100%;
+}
+
+.leftArrow,
+.rightArrow {
+	opacity: 0;
+	position: absolute;
+	padding: $main_standardSpace * 3.5;
+	transition: all $main_transition;
+
+	.movingArrowContainer {
+		@include helpers_vCenter;
+
+		.movingArrow {
+			position: relative;
+		}
+	}
+}
+
+.leftArrow {
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	background: linear-gradient(
+		90deg,
+		rgba($colors_sYellow, 0.7) 0%,
+		rgba($colors_sYellow, 0.4) 66%,
+		rgba($colors_sYellow, 0) 100%
+	);
+
+	.movingArrow {
+		margin-top: -10px;
+	}
+}
+
+.rightArrow {
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background: linear-gradient(
+		270deg,
+		rgba($colors_sYellow, 0.7) 0%,
+		rgba($colors_sYellow, 0.4) 66%,
+		rgba($colors_sYellow, 0) 100%
+	);
+
+	.movingArrow {
+		margin-top: 10px;
+	}
+}
+
+.carouselContainer {
+	width: 100%;
+
+	// &:hover {
+	// 	.leftArrow,
+	// 	.rightArrow {
+	// 		opacity: 1;
+	// 	}
+	// }
+}
+
+:export {
+	main_desktop: 4000;
+	main_desktopLow: $main_desktop;
+	main_tablet: $main_tablet;
+	main_tabletLow: $main_mobile + 1;
+	main_mobile: $main_desktop;
+	main_mobileLow: 0;
+}

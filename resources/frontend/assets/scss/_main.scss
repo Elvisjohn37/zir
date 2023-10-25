@@ -1,0 +1,52 @@
+$main_transition: 0.3s;
+$main_standardSpace: 10px;
+$main_fontSize: 14px;
+$main_radius: 4px;
+$main_maxWidth: 4000px;
+$main_bigDesktop: 1500px;
+$main_desktop: 1000px;
+$main_tablet: 768px;
+$main_mobile: 700px;
+$main_minWidth: 320px;
+$main_headerHeight: 95px;
+$main_loginFOrm: 44px;
+$main_minHeaderWidth: 403px;
+$main_minfooterWidth: 410px;
+$main_langIcon: 30px;
+$main_langIconSpacing: $main_standardSpace;
+$main_langIconSpacingMobile: calc($main_standardSpace/2);
+$main_langIconCount: 4;
+$main_orgLinksIcon: 40px;
+$main_orgLinksIconMobile: 40px;
+$main_orgLinksSpacing: $main_standardSpace;
+$main_orgLinksCount: 2;
+$main_mobileSidebarSize: 28px;
+$main_announcementHeight: 20px;
+$main_mobileBottomMenuHeight: 60px;
+$main_sboMobileHeaderHeight: 47px;
+$main_sboMobileFooterHeight: 268px;
+$main_menuHeight: 45px;
+$main_BsiNewGameDescWidth: 23vw;
+$main_BsiExploreDescWidth: 25vw;
+
+ol {
+	> li {
+		counter-increment: item;
+
+		&:first-child {
+			counter-reset: item;
+		}
+	}
+	ol > li {
+		display: block;
+
+		&:before {
+			content: counters(item, '.') '. ';
+			margin-left: -20px;
+		}
+	}
+}
+
+a {
+	cursor: pointer;
+}

@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zircon-ps-cw
+  namespace: zircon
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    instance: zircon-ps-cw
+    name: zircon-ps-cw
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zircon-ps-cw
+  namespace: zircon
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: zircon-ps-cw
+      instance: zircon-ps-cw
+  template:
+    metadata:
+      labels:
+        name: zircon-ps-cw
+        instance: zircon-ps-cw
+        component: zircon-ps-cw
+        version: ${COMMIT}
+    spec:
+      containers:
+        - name: zircon-ps-cw
+          image: ${DOCKER_IMAGE}:${COMMIT}
+          imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          envFrom:
+            - configMapRef:
+                name: zircon-ps-cw
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zircon-ps-cw-mobile
+  namespace: zircon
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    instance: zircon-ps-cw-mobile
+    name: zircon-ps-cw-mobile
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zircon-ps-cw-mobile
+  namespace: zircon
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: zircon-ps-cw-mobile
+      instance: zircon-ps-cw-mobile
+  template:
+    metadata:
+      labels:
+        name: zircon-ps-cw-mobile
+        instance: zircon-ps-cw-mobile
+        component: zircon-ps-cw-mobile
+        version: ${COMMIT}
+    spec:
+      containers:
+        - name: zircon-ps-cw-mobile
+          image: ${DOCKER_IMAGE}:${COMMIT}
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: zircon-ps-cw
+          env:
+            - name: APP_IS_MOBILE
+              value: 'true'
+          ports:
+            - containerPort: 80

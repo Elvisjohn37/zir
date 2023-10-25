@@ -1,0 +1,63 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.root {
+	display: block;
+	padding: 0px $main_standardSpace * 3;
+}
+
+.desktopSidebar {
+	padding: $main_standardSpace * 2 0px;
+}
+
+.desktopContent {
+	@include colors_pLight();
+	padding: $main_standardSpace * 2;
+	border-radius: $main_radius;
+}
+
+.mobileSidebar {
+	float: right;
+	margin-top: -($main_mobileSidebarSize + ($main_standardSpace * 2));
+	margin-right: $main_standardSpace + (calc($main_standardSpace/2));
+}
+
+.mobileMenuButton {
+	min-width: 0px;
+	padding: calc($main_standardSpace/2);
+}
+
+.mobileMenuButtonIcon {
+	font-size: $main_fontSize + 4px;
+}
+
+.mobileContent {
+	margin-top: $main_standardSpace;
+	padding-left: $main_standardSpace;
+	padding-right: $main_standardSpace;
+}
+
+.disabledSidebarWrapper {
+	padding: 0px $main_standardSpace;
+}
+
+.selected{
+	background-color: $colors_secondary !important;
+	color: $colors_sText !important;
+
+	* {
+		color: $colors_sText !important;
+	}
+}
+
+.sidebarItem {
+	border-radius: 20px !important;
+
+	+ .sidebarItem {
+		margin-top: $main_standardSpace;
+	}
+}
+
+:export {
+	main_mobile: $main_mobile;
+}

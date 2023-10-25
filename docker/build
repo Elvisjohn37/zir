@@ -1,0 +1,41 @@
+#!/bin/bash
+PUBLISH_PORT=9210
+ASSET_DEDICATED_URL=
+
+while getopts p:a flag
+do
+    case "${flag}" in
+        p) PUBLISH_PORT=${OPTARG};;
+        a) ASSET_DEDICATED_URL=${OPTARG};;
+    esac
+done
+
+set -e
+
+bash ./docker/init
+
+if [[ "$(docker images -q zircon_ps_dev:latest 2> /dev/null)" == "" ]]; then
+    echo -e "\033[1;35m Starting development environment \033[0m" 
+    ./vendor/bin/sail up -d
+fi
+
+echo -e "\033[1;35m Creating production image: zircon_ps \033[0m" 
+PS_IMAGE_TAG=zircon_ps:latest
+docker build -t $PS_IMAGE_TAG .
+
+echo -e "\033[1;35m Running production image \033[0m"
+
+# Create container
+BUILD_CONTAINER=$(docker create -v zircon_rso:/var/www/html/rso/ --network zircon_ps_network -p $PUBLISH_PORT:80 $PS_IMAGE_TAG)
+
+# Create temporary env file and copy inside container
+mkdir -p ./docker/temp
+cp ./.env.example ./docker/temp/.env.build
+sed -i 's@ASSET_DEDICATED_URL=//${APP_URL}:${WPDS_PORT}@ASSET_DEDICATED_URL='"${ASSET_DEDICATED_URL}"'@g' ./docker/temp/.env.build
+docker cp ./docker/temp/.env.build $BUILD_CONTAINER:/var/www/html/.env
+rm -rf ./docker/temp/
+
+# Start container
+docker start $BUILD_CONTAINER
+
+echo -e "\033[1;35m Application is now running! Access through assigned port. \033[0m"

@@ -1,0 +1,167 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$border: darken($colors_sLight, 15%);
+
+.container {
+	padding: 0 $main_standardSpace * 2;
+	margin-bottom: $main_standardSpace;
+}
+
+.dateList {
+	display: inline-flex;
+	text-transform: none;
+	padding: 0px 5px;
+	display: flex;
+	.item {
+		padding: 0px 5px;
+		text-align: center;
+		.textItem > span {
+			font-size: $main_fontSize - 1;
+			font-weight: bold;
+		}
+	}
+}
+
+.tableSection {
+	padding: $main_standardSpace * 2 $main_standardSpace;
+	padding-top: 0px;
+	position: relative;
+
+	@media (max-device-width: $main_tablet) {
+		padding-top: $main_standardSpace * 2;
+	}
+
+	.reportDetails {
+		margin-bottom: $main_standardSpace;
+	}
+
+	.runningBetsNav .totRunBetGrid {
+		position: relative;
+	}
+
+	.dates,
+	.runningBetsNav {
+		margin-bottom: $main_standardSpace;
+	}
+
+	.dateButton {
+		border: 0px !important;
+	}
+
+	.dateTabIndicator {
+		height: 100% !important;
+		background: rgba(0, 0, 0, 0.08);
+	}
+
+	.refreshButton {
+		span {
+			font-size: $main_fontSize;
+			font-weight: 400;
+		}
+
+		.refeshIcon {
+			font-size: $main_fontSize;
+		}
+	}
+}
+
+.totalRunningBets {
+	@media screen and (min-device-width: $main_tablet) {
+		display: inline-block;
+		position: absolute;
+		color: rgba($colors_pText, 0.6);
+		background: rgba($colors_primary, 0.5);
+		padding: $main_standardSpace/4 $main_standardSpace;
+		top: 2px;
+		right: 10px;
+		border-radius: 10px;
+	}
+
+	@media screen and (max-device-width: $main_tablet - 1px) {
+		position: relative;
+		display: block;
+		text-align: center;
+		margin-top: $main_standardSpace * 2;
+		margin-bottom: $main_standardSpace;
+	}
+}
+
+.desktopDateRangeLoader,
+.mobileDateRangeLoader {
+	width: 100%;
+	display: flex;
+}
+
+.mobileDateRangeLoader {
+	padding: 0px;
+
+	> span {
+		margin: 0px;
+	}
+}
+
+.mobileDateRangeButton {
+	width: 100%;
+}
+
+.mobileDateRangeIcon {
+	position: absolute;
+	right: $main_standardSpace;
+	background: rgba($colors_secondary, 0.08);
+	border-radius: $main_radius;
+	color: $colors_secondary;
+	padding: calc($main_standardSpace/4);
+}
+
+.colHeaderRowNum {
+	@include helpers_setTableColWidth(32px);
+}
+
+.colHeaderDate {
+	@include helpers_setTableColWidth(90px);
+}
+
+.colHeaderType {
+	@include helpers_setTableColWidth(75px);
+}
+
+.colHeaderProduct {
+	@include helpers_setTableColWidth(90px);
+}
+
+.colHeaderTurnover {
+	@include helpers_setTableColWidth(70px);
+}
+
+.colHeaderGrossRake {
+	@include helpers_setTableColWidth(90px);
+}
+
+.colHeaderCommission {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderCashBalance {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderCredit {
+	@include helpers_setTableColWidth(80px);
+}
+
+:export {
+	main_mobile: $main_mobile;
+}
+
+.backButton {
+	min-width: unset;
+}
+
+.refreshButton {
+	text-transform: unset;
+	> span {
+		font-size: $main_fontSize - 1;
+	}
+}

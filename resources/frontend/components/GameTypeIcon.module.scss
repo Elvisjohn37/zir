@@ -1,0 +1,126 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_keyframes';
+
+$newGameTagBgColor: #b90000;
+
+.menuItem {
+	height: 100%;
+	cursor: pointer;
+	position: relative;
+
+	&:hover,
+	&.active {
+		.gameTypeBackground {
+			background-color: $colors_secondary;
+		}
+	}
+
+	.gameTypeBackground {
+		transition: $main_transition;
+		padding: calc($main_standardSpace / 2);
+		background-color: $colors_sLight;
+		box-shadow: 0px 1px 1px 1px rgba($colors_secondary, 0.5);
+		border-radius: 50px;
+		line-height: 0;
+		width: 67px;
+		height: 67px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		opacity: 0.2;
+		overflow: hidden;
+
+		img {
+			border-radius: 50px;
+			width: 100%;
+			max-width: 59px;
+		}
+
+		.image {
+			height: 100%;
+			width: 100%;
+		}
+
+		@media only screen and (max-width: $main_tablet) {
+			width: 48px;
+			height: 48px;
+		}
+	}
+
+	.fadein {
+		@include fadein(1s, 0.2);
+		animation-fill-mode: forwards;
+	}
+
+	.label {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: $main_standardSpace;
+
+		@media only screen and (max-width: $main_tablet) {
+			font-weight: normal;
+			text-transform: none;
+			font-size: $main_fontSize - 2px;
+		}
+	}
+}
+
+.notAvailable {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+}
+
+.eventHandlerContainer {
+	padding: calc($main_standardSpace / 2);
+}
+
+.newGameTagContainer {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: calc($main_standardSpace / 2);
+		height: calc($main_standardSpace / 2);
+		background-color: darken($newGameTagBgColor, 10%);
+	}
+
+	&::before {
+		top: 0;
+		right: 0;
+	}
+
+	&::after {
+		bottom: 0;
+		left: 0;
+	}
+
+	.newGameTagContent {
+		background-color: $newGameTagBgColor;
+		text-align: center;
+		color: white;
+		display: block;
+		padding: 1px;
+		transform: rotate(-45deg);
+		position: absolute;
+		width: 100px;
+		left: -31px;
+		bottom: 22px;
+		font-size: 10px;
+		z-index: 1;
+		box-shadow: 0px 1px 1px darken($newGameTagBgColor, 10%);
+	}
+}

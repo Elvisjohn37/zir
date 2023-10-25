@@ -1,0 +1,22 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.carousel {
+	margin-left: -($main_standardSpace * 3) - 5px;
+	margin-right: -$main_standardSpace * 3;
+}
+
+.containerClass {
+	overflow: visible;
+}
+
+:export {
+	main_superLargeDesktop: $main_maxWidth;
+	main_superLargeDesktopLow: $main_bigDesktop + 1;
+	main_desktop: $main_bigDesktop;
+	main_desktopLow: $main_tablet + 1;
+	main_tablet: $main_tablet;
+	main_tabletLow: $main_mobile + 1;
+	main_mobile: $main_mobile;
+	main_mobileLow: 0;
+}

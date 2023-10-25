@@ -1,0 +1,34 @@
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_colors';
+
+$tableIndicator_spinnerSize: 40px;
+
+.tableIndicator {
+	width: 100%;
+	position: relative;
+}
+
+.tablePaperContainer {
+	overflow: hidden;
+
+	// td {
+	// 	//word-wrap: break-word;
+	// 	word-break: break-word;
+	// }
+}
+
+.loadingSkeleton {
+	padding: 0px;
+
+	> span {
+		margin: 0px !important;
+	}
+}
+
+.loadingSpinner {
+	@include helpers_center(absolute);
+	background: rgba($colors_sDark, 0.1);
+	width: $tableIndicator_spinnerSize;
+	height: $tableIndicator_spinnerSize;
+	border-radius: 50%;
+}

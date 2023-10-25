@@ -1,0 +1,142 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+.container {
+	padding: $main_standardSpace * 3;
+	user-select: none;
+	padding-left: $main_standardSpace * 4;
+
+	&.mobile {
+		@include colors_secondary;
+		padding: $main_standardSpace * 1.5;
+
+		.title {
+			color: $colors_sText;
+			font-size: $main_fontSize;
+			font-weight: 500;
+			margin-bottom: $main_standardSpace * 1.5;
+		}
+
+		.carouselContainer {
+			padding: $main_standardSpace/2;
+		}
+
+		.gameThumbnail {
+			padding: $main_standardSpace $main_standardSpace/1.5;
+		}
+
+		.icon {
+			margin-bottom: -5px;
+			font-size: $main_fontSize + 6px;
+		}
+	}
+}
+
+.carouselContainer {
+	padding: 0px $main_standardSpace * 4;
+	padding-right: $main_standardSpace * 3;
+}
+
+.carousel {
+	position: relative;
+	width: 100%;
+	border-radius: 10px;
+	overflow: hidden;
+
+	&:hover {
+		.leftArrow,
+		.rightArrow {
+			opacity: 1;
+		}
+	}
+
+	.carouselContent {
+		display: block;
+		margin-left: -$main_standardSpace;
+		margin-right: -$main_standardSpace;
+		margin-top: -$main_standardSpace;
+		margin-bottom: -$main_standardSpace;
+	}
+}
+
+.gameThumbnail {
+	width: 100%;
+	padding: $main_standardSpace;
+}
+
+.title {
+	color: $colors_sDark;
+	font-size: $main_fontSize + 3px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: $main_standardSpace * 2;
+
+	.icon {
+		margin-bottom: -6px;
+		margin-right: $main_standardSpace;
+	}
+}
+
+.leftArrow,
+.rightArrow {
+	opacity: 0;
+	position: absolute;
+	padding: $main_standardSpace * 3.5;
+	transition: all $main_transition;
+
+	.movingArrowContainer {
+		@include helpers_vCenter;
+
+		.movingArrow {
+			position: relative;
+		}
+	}
+
+	.movingArrow {
+		margin-top: -10px;
+	}
+}
+
+.leftArrow {
+	border-radius: 10px 0px 0px 10px;
+	left: $main_standardSpace;
+	top: $main_standardSpace;
+	bottom: $main_standardSpace;
+	background: linear-gradient(
+		90deg,
+		rgba($colors_sYellow, 0.4) 0%,
+		rgba($colors_sYellow, 0.3) 66%,
+		rgba($colors_sYellow, 0) 100%
+	);
+}
+
+.rightArrow {
+	border-radius: 0px 10px 10px 0px;
+	right: $main_standardSpace;
+	top: $main_standardSpace;
+	bottom: $main_standardSpace;
+	background: linear-gradient(
+		270deg,
+		rgba($colors_sYellow, 0.4) 0%,
+		rgba($colors_sYellow, 0.3) 66%,
+		rgba($colors_sYellow, 0) 100%
+	);
+}
+
+.carouselFix {
+	ul {
+		transform: none !important;
+	}
+}
+
+:export {
+	main_superLargeDesktop: $main_maxWidth;
+	main_superLargeDesktopLow: $main_bigDesktop + 1;
+	main_desktop: $main_bigDesktop;
+	main_desktopLow: $main_tablet + 1;
+	main_tablet: $main_tablet;
+	main_tabletLow: $main_mobile + 1;
+	main_mobile: $main_mobile;
+	main_mobileLow: 0;
+}

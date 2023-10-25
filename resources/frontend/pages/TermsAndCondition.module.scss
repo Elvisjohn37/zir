@@ -1,0 +1,46 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_mainLayoutDesktop';
+
+$termAndConditionPadding: $main_standardSpace * 3;
+
+.termAndCondition {
+	padding: $main_standardSpace * 3;
+	padding-top: $main_standardSpace * 5;
+	width: 100%;
+	max-width: 1000px + $termAndConditionPadding * 2;
+	margin: 0 auto;
+
+	@media screen and (max-width: $main_bigDesktop) {
+		padding-top: $main_standardSpace * 3;
+	}
+
+	.termAndConditionContent {
+		position: relative;
+		text-align: left;
+		padding: $main_standardSpace * 3;
+		box-shadow: 0px 4px 4px $colors_pDark;
+		width: 100%;
+		min-height: calc(100vh - ($mainLayoutDesktop_footerHeightASI + $main_headerHeight + $main_standardSpace * 2));
+		margin-top: $main_standardSpace * 5;
+		@include colors_pLight;
+		border-radius: $main_radius;
+
+		h3 {
+			margin: 0;
+			padding: 0 0 $main_standardSpace * 2;
+		}
+
+		.description {
+			padding: 0 $main_standardSpace * 2;
+			font-size: $main_fontSize;
+		}
+		.content {
+			font-weight: bold;
+			li {
+				padding: calc($main_standardSpace/2) 0;
+			}
+		}
+	}
+}

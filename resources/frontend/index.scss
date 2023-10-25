@@ -1,0 +1,86 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+html {
+	font-size: 10px;
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+body,
+html {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+a:not(.MuiButton-containedSecondary) {
+	color: $colors_link;
+
+	&:hover,
+	:hover {
+		color: $colors_linkActive;
+
+		* {
+			color: $colors_linkActive;
+		}
+	}
+
+	* {
+		color: $colors_link;
+	}
+}
+
+body {
+	&.zip-full {
+		#root {
+			height: 100%;
+		}
+
+		// scroll bar
+		> *,
+		& {
+			box-sizing: border-box;
+
+			&::-webkit-scrollbar {
+				width: $main_standardSpace;
+				height: $main_standardSpace;
+			}
+
+			&::-webkit-scrollbar-track {
+				background-color: rgba($colors_pDark, 0.4);
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: rgba($colors_pDark, 0.8);
+
+				&:hover {
+					background: rgba($colors_pDark, 1);
+				}
+			}
+		}
+	}
+
+	&.zip-mobile-el {
+		padding-top: $main_sboMobileHeaderHeight;
+
+		#root {
+			min-height: 100%;
+			padding-bottom: $main_sboMobileFooterHeight + $main_mobileBottomMenuHeight;
+			margin-bottom: -($main_sboMobileFooterHeight + $main_mobileBottomMenuHeight);
+		}
+
+		#pp-component {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+#root {
+	width: 100%;
+}

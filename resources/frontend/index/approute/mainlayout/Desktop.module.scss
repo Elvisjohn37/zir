@@ -1,0 +1,111 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_mainLayoutDesktop';
+
+.breadcrumbContainer {
+	padding: $main_standardSpace * 2 $main_standardSpace * 2;
+
+	&:empty {
+		display: none;
+	}
+
+	@media screen and (max-width: $main_mobile) {
+		padding: $main_standardSpace;
+		padding-right: $main_mobileSidebarSize + ($main_standardSpace * 2) + (calc($main_standardSpace/2));
+	}
+}
+
+@media screen and (max-device-width: $main_tablet - 1px) {
+	.headerLogin {
+		height: $main_headerHeight - $main_loginFOrm;
+	}
+
+	.bodyLogin {
+		padding-top: (($main_headerHeight - $main_loginFOrm) + $mainLayoutDesktop_langContainerMobile);
+		margin-top: -(($main_headerHeight - $main_loginFOrm) + $mainLayoutDesktop_langContainerMobile);
+	}
+
+	.body {
+		.children {
+			padding-top: $main_standardSpace * 3;
+		}
+	}
+}
+
+.footer {
+	&.footerLogin {
+		height: $mainLayoutDesktop_footerHeightASI;
+	}
+
+	@media screen and (max-device-width: $main_minfooterWidth) {
+		height: $mainLayoutDesktop_footerHeightBSI;
+
+		&.footerLogin {
+			height: $mainLayoutDesktop_footerHeightASI;
+		}
+	}
+
+	.footerContainer {
+		@include helpers_clearfix();
+		background: darken($colors_pDark, 60%);
+		color: lighten($colors_pText, 60%);
+		padding: $main_standardSpace/2 $main_standardSpace * 3;
+		padding-bottom: $main_standardSpace * 1.5;
+	}
+
+	.footerContent {
+		margin-top: $main_standardSpace;
+	}
+}
+
+.banks {
+	background: $colors_primary;
+	padding: 0px $main_standardSpace;
+	line-height: 0px;
+
+	.bank {
+		width: 14%;
+		max-width: 130px;
+		padding: $main_standardSpace * 2 $main_standardSpace;
+		display: inline-block;
+
+		.image {
+			width: 100%;
+		}
+	}
+}
+
+.orgLinksContainer {
+	text-align: left;
+	height: 100%;
+	margin-left: -$main_standardSpace/2;
+
+	img {
+		margin-top: 1px;
+	}
+
+	.orgLinksLoader {
+		padding: $main_standardSpace !important;
+
+		> span {
+			margin: 0px !important;
+			width: $main_orgLinksIcon;
+			height: $main_orgLinksIcon;
+
+			@media screen and (max-width: $main_tablet) {
+				width: $main_orgLinksIconMobile !important;
+				height: $main_orgLinksIconMobile !important;
+			}
+
+			+ span {
+				margin-left: $main_orgLinksSpacing * 2 !important;
+			}
+		}
+	}
+}
+
+:export {
+	main_tablet: $main_tablet;
+	main_minWidth: $main_minWidth;
+}

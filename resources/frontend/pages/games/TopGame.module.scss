@@ -1,0 +1,67 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.container {
+	padding: $main_standardSpace * 2 $main_standardSpace * 4;
+	padding-bottom: $main_standardSpace;
+	user-select: none;
+	margin-top: -1px;
+	position: relative;
+	overflow: hidden;
+
+	&.mobile {
+		@include colors_secondary;
+		padding: $main_standardSpace * 1.5 $main_standardSpace * 2;
+
+		.title {
+			color: $colors_sText;
+			font-size: $main_fontSize;
+			font-weight: 500;
+			margin-bottom: $main_standardSpace * 1.5;
+		}
+
+		.icon {
+			margin-bottom: -5px;
+			font-size: $main_fontSize + 6px;
+		}
+	}
+}
+
+.title {
+	color: $colors_sDark;
+	font-size: $main_fontSize + 3px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: $main_standardSpace * 2;
+
+	.icon {
+		margin-bottom: -6px;
+		margin-right: $main_standardSpace;
+	}
+}
+
+.mobileBg {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+
+	.svgCls1 {
+		fill: #fff; //match SBO
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+:export {
+	main_desktop: 4000;
+	main_desktopLow: $main_desktop;
+	main_tablet: $main_tablet;
+	main_tabletLow: $main_mobile + 1;
+	main_mobile: $main_desktop;
+	main_mobileLow: 0;
+}

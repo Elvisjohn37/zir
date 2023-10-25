@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBar/> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="searchPaper"
+    data-testid="Paper"
+    elevation="2"
+  >
+    <div
+      class="searchInputContainer"
+    >
+      <input
+        class="searchInput"
+        data-testid="InputBase"
+      />
+    </div>
+    <div
+      class="searchButtonContainer"
+    >
+      <button
+        class="searchButton"
+        data-testid="IconButton"
+      >
+        <div
+          data-testid="Search"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

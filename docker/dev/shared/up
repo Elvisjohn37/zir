@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker-compose --env-file ./.env -f ./docker/dev/shared/docker-compose.yml -p zircon_ps_shared up -d 

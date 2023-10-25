@@ -1,0 +1,71 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_mainLayoutDesktop';
+
+.headerLoader {
+	line-height: 0px;
+}
+
+.bodySkeleton,
+.footerSkeleton,
+.langSkeleton,
+.headerSkeleton {
+	padding: 0px !important;
+
+	> span {
+		max-height: 100% !important;
+		max-width: 100% !important;
+		margin: 0px !important;
+	}
+}
+
+.headerSkeleton {
+	> span {
+		height: 100% !important;
+		width: 100% !important;
+	}
+}
+
+.langLoader {
+	line-height: 0px;
+}
+
+.langSkeleton {
+	> span {
+		height: 100% !important;
+		width: $main_mobile !important;
+	}
+}
+
+.bodyLoader {
+	height: 100%;
+	line-height: 0px;
+
+	.container {
+		padding: 0px $main_standardSpace;
+		padding-top: $main_standardSpace;
+	}
+}
+
+.bodySkeleton {
+	> span {
+		height: 100% !important;
+		width: 100% !important;
+	}
+}
+
+.footerLoader {
+	line-height: 0px;
+	overflow: hidden;
+
+	.footerContainer {
+		padding: $main_standardSpace;
+		height: 100%;
+	}
+}
+
+.footerSkeleton {
+	> span {
+		height: 100% !important;
+		width: 100% !important;
+	}
+}

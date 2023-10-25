@@ -1,0 +1,8 @@
+@import 'frontend/assets/scss/_main';
+
+:export {
+	casinoMinHeaderWidth: $main_mobile;
+}
+.link {
+	margin: 0px calc($main_standardSpace/2) !important;
+}

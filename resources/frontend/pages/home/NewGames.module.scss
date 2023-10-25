@@ -1,0 +1,211 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_keyframes';
+
+@mixin gradientToLeft() {
+	background: linear-gradient(
+		90deg,
+		rgba($colors_sYellow, 0.4) 0%,
+		rgba($colors_sYellow, 0.3) 66%,
+		rgba($colors_sYellow, 0) 100%
+	);
+}
+
+@mixin gradientToRight() {
+	background: linear-gradient(
+		to right,
+		rgba($colors_sYellow, 0.4) 0%,
+		rgba($colors_sYellow, 0.3) 66%,
+		rgba($colors_sYellow, 0) 100%
+	);
+}
+
+.newGames {
+	padding: $main_standardSpace * 4 $main_standardSpace * 3;
+	display: flex;
+	position: relative;
+
+	@media (max-width: $main_tablet) {
+		padding-top: $main_standardSpace * 9;
+	}
+
+	.gameList {
+		// padding-right: $main_BsiNewGameDescWidth;
+		overflow: hidden;
+		border-radius: 10px;
+		width: 80%;
+
+		@media (max-width: $main_tablet) {
+			width: 100%;
+		}
+
+		.imageContainer {
+			padding: 0 $main_standardSpace;
+
+			.newGamesImage {
+				border-radius: 10px;
+				overflow: hidden;
+				width: 100%;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.carouselContainerClass {
+			margin-left: -$main_standardSpace !important;
+			margin-right: -$main_standardSpace !important;
+			line-height: 0;
+		}
+
+		.gameListMovingArrowLeft,
+		.gameListMovingArrowRight {
+			transition: $main_transition;
+			opacity: 0;
+			width: 100px;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: $main_standardSpace 0px 0px $main_standardSpace;
+		}
+
+		.gameListMovingArrowLeft {
+			position: absolute;
+			@include gradientToLeft;
+			left: $main_standardSpace;
+		}
+
+		.gameListMovingArrowRight {
+			right: $main_standardSpace;
+		}
+
+		@media (max-width: $main_tablet) {
+			.gameListMovingArrowLeft {
+				background: unset;
+			}
+		}
+
+		&:hover {
+			.gameListMovingArrowLeft,
+			.gameListMovingArrowRight {
+				opacity: 1;
+			}
+		}
+	}
+
+	.gameDescription {
+		width: 20%;
+		display: flex;
+		flex-direction: column;
+		text-align: right;
+		padding-top: $main_standardSpace * 51;
+		background: linear-gradient(90deg, rgba($colors_secondary, 0.98) 0%, rgba($colors_secondary, 1) 14%);
+		position: absolute;
+		right: 0px;
+		padding-right: $main_standardSpace * 3;
+		bottom: 0;
+		padding-bottom: $main_standardSpace * 4;
+
+		@media (min-width: calc($main_tablet + 1px)) and (max-width: $main_desktop) {
+			width: 25%;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			background: linear-gradient(
+				90deg,
+				rgba($colors_secondary, 0%) 0%,
+				rgba($colors_secondary, 0.71) 30%,
+				rgba($colors_secondary, 0.92) 74%
+			);
+			transform: translateX(calc(-99% - $main_standardSpace));
+			top: 0px;
+			bottom: 0px;
+			left: $main_standardSpace;
+			width: 160px;
+		}
+
+		.title {
+			font-size: 1.2vw;
+			font-weight: 700;
+		}
+
+		.content {
+			display: flex;
+			flex-direction: column;
+			color: $colors_sText;
+			opacity: 0.6;
+			font-size: 1vw;
+			padding: $main_standardSpace * 2 0;
+		}
+
+		.action {
+			.gameListDescriptionButton {
+				background-color: $colors_pYellow;
+				color: $colors_sDark;
+				font-weight: bold;
+				border-radius: 50px;
+				padding: 0.5vw 1.2vw;
+				font-size: 1vw;
+
+				@media (min-width: calc($main_bigDesktop + 1px)) {
+					padding: $main_standardSpace $main_standardSpace * 4;
+					font-size: 0.8vw;
+					padding: 0.5vw 1vw;
+				}
+			}
+		}
+
+		@media (max-width: $main_tablet) {
+			position: absolute;
+			background: unset;
+			padding: $main_standardSpace * 3 0;
+			top: 0;
+			width: 100%;
+			text-align: center;
+			bottom: unset;
+
+			&::before {
+				content: unset;
+			}
+
+			.title {
+				font-size: 20px;
+			}
+
+			.content,
+			.action {
+				display: none;
+			}
+		}
+
+		@media (min-width: calc($main_bigDesktop + 1px)) {
+			.content {
+				padding: $main_standardSpace 0;
+				font-size: 0.8vw;
+			}
+		}
+
+		@media (min-width: calc($main_tablet + 1px)) and (max-width: $main_desktop) {
+			.content {
+				padding: $main_standardSpace 0;
+				font-size: 1.3vw;
+			}
+		}
+	}
+}
+
+:export {
+	main_superLargeDesktop: $main_maxWidth;
+	main_superLargeDesktopLow: $main_bigDesktop + 1;
+	main_desktop: $main_bigDesktop;
+	main_desktopLow: $main_tablet + 1;
+	main_tablet: $main_tablet;
+	main_tabletLow: $main_mobile + 1;
+	main_mobile: $main_mobile;
+	main_mobileLow: 0;
+}

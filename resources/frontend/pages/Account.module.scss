@@ -1,0 +1,49 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+$account_menuMinWidth: 440px;
+$account_btnSize: 120px;
+$account_menuSpacing: 3;
+
+.account {
+	position: relative;
+	text-align: left;
+	padding: $main_standardSpace * 4;
+
+	.menuContainer {
+		display: block;
+		margin: 0 auto;
+		max-width: ($account_btnSize * 3) + ($main_standardSpace * ($account_menuSpacing * 2));
+	}
+
+	.accMenuBtn {
+		min-width: $account_btnSize;
+		height: $account_btnSize;
+		border-radius: $main_radius;
+		width: 100%;
+		color: $colors_link !important;
+
+		* {
+			color: $colors_link !important;
+		}
+	}
+
+	.label {
+		background: $colors_pLight;
+		min-height: 0px !important;
+		display: inline-flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		box-shadow:  rgb(0 0 0 / 0%) 0px 3px 1px -2px, rgb(0 0 0 / 0%) 0px 2px 2px 0px, rgb(0 0 0 / 0%) 0px 1px 5px 0px;
+		transition: all $main_transition;
+
+		&:hover {
+			box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+		}
+	}
+}
+
+:export {
+	account_menuSpacing: $account_menuSpacing;
+}

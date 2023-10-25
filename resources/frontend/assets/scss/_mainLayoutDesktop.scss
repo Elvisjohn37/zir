@@ -1,0 +1,59 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+$mainLayoutDesktop_footerHeightASI: 160px;
+$mainLayoutDesktop_langContainer: $main_orgLinksIcon + ($main_standardSpace * 3);
+$mainLayoutDesktop_logoWidth: 200px;
+$mainLayoutDesktop_footerHeightBSI: 160px;
+$mainLayoutDesktop_menuHeight: 34px;
+$mainLayoutDesktop_langContainerMobile: 0px;
+$mainLayoutDesktop_footerShadow: 0px;
+$mainLayoutDesktop_orgLinksContainerWidth: ($main_orgLinksIcon + ($main_orgLinksSpacing * $main_orgLinksCount)) *
+	$main_orgLinksCount;
+$mainLayoutDesktop_langListWidth: ($main_langIcon + ($main_langIconSpacing * 2)) * $main_langIconCount;
+$mainLayoutDesktop_langListWidthMobile: ($main_langIcon + ($main_langIconSpacingMobile * 2)) * $main_langIconCount;
+$mainLayoutDesktop_orgLinksContainerWidthMobile: (
+		$main_orgLinksIconMobile + ($main_orgLinksSpacing * $main_orgLinksCount)
+	) * $main_orgLinksCount;
+
+.container {
+	height: 100%;
+	position: relative;
+}
+
+.header {
+	position: relative;
+	height: $main_headerHeight;
+	z-index: 3;
+}
+
+.body {
+	background: $colors_primary;
+	//padding and margin top set to 136 when mobile and player is
+	padding-top: ($main_headerHeight);
+	margin-top: -($main_headerHeight);
+	padding-bottom: $mainLayoutDesktop_footerHeightBSI + $mainLayoutDesktop_footerShadow;
+	margin-bottom: -$mainLayoutDesktop_footerHeightBSI;
+	position: relative;
+	min-height: 100%;
+
+	&.bodyLogin {
+		padding-bottom: $mainLayoutDesktop_footerHeightASI + $mainLayoutDesktop_footerShadow;
+		margin-bottom: -$mainLayoutDesktop_footerHeightASI;
+
+		.bodyContentBg {
+			bottom: $mainLayoutDesktop_footerHeightASI;
+		}
+	}
+}
+
+.footer {
+	position: relative;
+	height: $mainLayoutDesktop_footerHeightBSI + 1px;
+	top: -1px;
+	text-align: center;
+
+	.footerContainer {
+		padding: $main_standardSpace;
+	}
+}

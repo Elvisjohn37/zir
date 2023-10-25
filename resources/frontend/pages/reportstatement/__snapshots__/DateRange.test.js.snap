@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`</DesktopDateRange> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="full width tabs example"
+    classes="{\\"indicator\\":\\"dateTabIndicator\\"}"
+    data-testid="Tabs"
+    indicatorcolor="primary"
+    textcolor="secondary"
+    variant="fullWidth"
+  >
+    <a
+      classes="{\\"root\\":\\"dateButton\\"}"
+      color="secondary"
+      data-testid="Tab"
+      disableripple="true"
+      value="3"
+    >
+      <div>
+        {"row":{"number":3,"startDate":"2021-07-01","endDate":"2021-07-31"}}
+      </div>
+    </a>
+    <a
+      classes="{\\"root\\":\\"dateButton\\"}"
+      color="secondary"
+      data-testid="Tab"
+      disableripple="true"
+      value="2"
+    >
+      <div>
+        {"row":{"number":2,"startDate":"2021-08-01","endDate":"2021-08-31"}}
+      </div>
+    </a>
+    <a
+      classes="{\\"root\\":\\"dateButton\\"}"
+      color="secondary"
+      data-testid="Tab"
+      disableripple="true"
+      value="1"
+    >
+      <div>
+        {"row":{"number":1,"startDate":"2021-09-01","endDate":"2021-09-01"}}
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`</MobileDateRange> should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="mobileDateRangeButton"
+    classes="{\\"endIcon\\":\\"mobileDateRangeIcon\\"}"
+    color="primary"
+    data-testid="Button"
+    disableelevation="true"
+    variant="contained"
+  >
+    <div
+      data-testid="DateRange"
+    >
+      2021-09-01 - 2021-09-01
+    </div>
+    <div>
+      {}
+    </div>
+  </button>
+  <div
+    data-testid="Menu"
+    keepmounted="true"
+  >
+    <div
+      component="a"
+      data-testid="MenuItem"
+    >
+      selected: false
+      <div
+        data-testid="ListItemText"
+      >
+        <div>
+          {"row":{"number":3,"startDate":"2021-07-01","endDate":"2021-07-31"}}
+        </div>
+      </div>
+    </div>
+    <div
+      component="a"
+      data-testid="MenuItem"
+    >
+      selected: false
+      <div
+        data-testid="ListItemText"
+      >
+        <div>
+          {"row":{"number":2,"startDate":"2021-08-01","endDate":"2021-08-31"}}
+        </div>
+      </div>
+    </div>
+    <div
+      component="a"
+      data-testid="MenuItem"
+    >
+      selected: true
+      <div
+        data-testid="ListItemText"
+      >
+        <div>
+          {"row":{"number":1,"startDate":"2021-09-01","endDate":"2021-09-01"}}
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

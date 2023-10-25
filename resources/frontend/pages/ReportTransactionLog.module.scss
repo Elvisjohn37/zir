@@ -1,0 +1,134 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$border: darken($colors_sLight, 15%);
+
+:export {
+	main_mobile: $main_mobile;
+}
+
+.container {
+	padding: 0 $main_standardSpace * 2;
+	margin-bottom: $main_standardSpace;
+}
+
+.dateList {
+	display: inline-flex;
+	text-transform: none;
+	padding: 0px 5px;
+	display: flex;
+	.item {
+		padding: 0px 5px;
+		text-align: center;
+		.textItem > span {
+			font-size: $main_fontSize - 1;
+			font-weight: bold;
+		}
+	}
+}
+.tableSection {
+	padding: $main_standardSpace * 2 $main_standardSpace;
+	padding-top: 0px;
+	position: relative;
+
+	@media (max-device-width: $main_tablet) {
+		padding-top: $main_standardSpace * 2;
+	}
+
+	.logNotice {
+		margin: $main_standardSpace - 2 0px;
+		font-size: $main_fontSize - 2;
+	}
+
+	.dateButton {
+		border: 0px !important;
+	}
+
+	.dateTabIndicator {
+		height: 100% !important;
+		background: rgba(0, 0, 0, 0.08);
+	}
+}
+
+.desktopDateRangeLoader,
+.mobileDateRangeLoader {
+	width: 100%;
+	display: flex;
+}
+
+.mobileDateRangeLoader {
+	padding: 0px;
+
+	> span {
+		margin: 0px;
+	}
+}
+
+.mobileDateRangeButton {
+	width: 100%;
+}
+
+.mobileDateRangeIcon {
+	position: absolute;
+	right: $main_standardSpace;
+	background: rgba($colors_secondary, 0.08);
+	border-radius: $main_radius;
+	color: $colors_secondary;
+	padding: calc($main_standardSpace/4);
+}
+
+.table {
+	table-layout: unset;
+}
+
+.colHeaderRowNum {
+	@include helpers_setTableColWidth(20px); //30px
+}
+
+.colHeaderDateTime {
+	@include helpers_setTableColWidth(20px); //85px
+}
+.colHeaderType {
+	@include helpers_setTableColWidth(20px); //60px
+}
+.colHeaderGameDetails {
+	@include helpers_setTableColWidth(100px); //140px
+}
+
+.colHeaderGameResult {
+	@include helpers_setTableColWidth(20px); //55px
+}
+
+.colHeaderDescription {
+	@include helpers_setTableColWidth(220px); //200px
+}
+
+.colHeaderAmount {
+	@include helpers_setTableColWidth(20px); //70px
+}
+.colHeaderStakeTurnover {
+	@include helpers_setTableColWidth(20px); //70px
+}
+
+.colHeaderGrossRake {
+	@include helpers_setTableColWidth(20px); //70px
+}
+
+.colHeaderMemWLCommission {
+	@include helpers_setTableColWidth(20px); //80px
+}
+.colHeaderCashBalanceGame {
+	@include helpers_setTableColWidth(20px); //75px
+}
+
+.backButton {
+	min-width: unset;
+}
+
+.refreshButton {
+	text-transform: unset;
+	> span {
+		font-size: $main_fontSize - 1;
+	}
+}

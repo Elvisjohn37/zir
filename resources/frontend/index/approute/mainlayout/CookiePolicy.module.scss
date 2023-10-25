@@ -1,0 +1,34 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.container {
+	background: rgba($colors_sDark, 0.8);
+	color: $colors_sText;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 99999;
+	padding: $main_standardSpace * 2;
+}
+
+.content {
+	max-width: $main_desktop;
+	margin: 0 auto;
+	width: 100%;
+	font-size: $main_fontSize - 2px;
+}
+
+.button {
+	text-align: right;
+}
+
+.buttonContent {
+	background: $colors_sYellow !important;
+	color: $colors_secondary !important;
+	font-weight: bold !important;
+	border-radius: 20px !important;
+
+	&:hover {
+		background: darken($colors_sYellow, 10%) !important;
+	}
+}

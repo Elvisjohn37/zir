@@ -1,0 +1,12 @@
+@import 'frontend/assets/scss/_main';
+
+.refNo {
+	margin-top: calc($main_standardSpace/4);
+	font-size: $main_fontSize - 4px;
+	opacity: 0.7;
+}
+
+.messageContainer {
+	display: block;
+	font-size: $main_fontSize;
+}

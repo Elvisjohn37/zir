@@ -1,0 +1,34 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+:export {
+	main_bigDesktop: $main_bigDesktop;
+	main_desktop: $main_desktop;
+	main_tablet: $main_tablet;
+	main_mobile: $main_mobile;
+	main_standardSpace: $main_standardSpace;
+	main_minWidth: $main_minWidth;
+	main_fontSize: $main_fontSize;
+
+	colors_primary: $colors_primary;
+	colors_pLight: $colors_pLight;
+	colors_pDark: $colors_pDark;
+	colors_pText: $colors_pText;
+
+	colors_secondary: $colors_secondary;
+	colors_sLight: $colors_sLight;
+	colors_sDark: $colors_sDark;
+	colors_sText: $colors_sText;
+
+	themeProvider_tabPadding: $main_standardSpace calc($main_standardSpace/2);
+	themeProvider_tabBorderColor: lighten($colors_pDark, 15%);
+	themeProvider_tabIndicator: transparent;
+
+	themeProvider_formLabelDefaultColor: rgba($colors_secondary, 0.6);
+
+	themeProvider_tableFontSize: $main_fontSize - 2px;
+	themeProvider_tableLineHeight: normal;
+	themeProvider_tableSmallPadding: $main_standardSpace;
+
+	themeProvider_dialogBg: rgba(0, 0, 0, 0.8);
+}

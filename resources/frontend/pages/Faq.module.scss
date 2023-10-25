@@ -1,0 +1,70 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_keyframes';
+
+.faq {
+	position: relative;
+	text-align: left;
+	padding: 0 $main_standardSpace * 4;
+
+	h3 {
+		width: fit-content;
+		max-width: fit-content;
+		display: inline-block;
+	}
+
+	.showAll {
+		float: right;
+		color: $colors_secondary;
+		margin: $main_standardSpace 0 $main_standardSpace 0;
+	}
+
+	@media screen and (max-width: $main_tablet) {
+		.showAll {
+			margin-top: 0;
+		}
+
+		.questionsContainer ol {
+			padding-left: $main_standardSpace * 2;
+		}
+	}
+
+	.questionsContainer {
+		font-size: $main_fontSize;
+
+		.question {
+			vertical-align: unset;
+			background-color: $colors_pLight;
+			z-index: 2;
+
+			.active {
+				background-color: $colors_sLight;
+			}
+		}
+
+		.answer {
+			margin: $main_standardSpace 0 $main_standardSpace $main_standardSpace * 2;
+			max-height: 0;
+			background-color: $colors_primary;
+			z-index: 1;
+			display: block;
+			overflow: hidden;
+
+			.answerContent {
+				padding: $main_standardSpace;
+			}
+
+			&.show {
+				max-height: 9999px;
+				transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+			}
+
+			&.hide {
+				height: 100%;
+				max-height: 0;
+				transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+			}
+		}
+	}
+}

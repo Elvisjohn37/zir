@@ -1,0 +1,64 @@
+#!/bin/bash
+
+set -e
+
+echo -e "\033[1;35m Setting up development environment... \033[0m"
+
+if [[ ! -f "./.env" ]]; then
+    echo -e "\033[1;35m Creating .env file... \033[0m"
+    cp ./.env.example .env
+    echo -e "\033[1;35m .env file created! \033[0m"
+fi
+
+if [[ ! -f "./.env.api" ]]; then
+    echo -e "\033[1;35m Creating .env.api file... \033[0m"
+    cp ./.env.api.example .env.api
+    echo -e "\033[1;35m .env.api file created! \033[0m"
+fi
+
+if [[ ! -f "./.env.adapterapi" ]]; then
+    echo -e "\033[1;35m Creating .env.api file... \033[0m"
+    cp ./.env.adapterapi.example .env.adapterapi
+    echo -e "\033[1;35m .env.api file created! \033[0m"
+fi
+
+
+# Composer install if /vendor is not yet existing
+if [[ ! -d "./vendor" ]]; then
+    echo -e "\033[1;35m Installing Composer package... \033[0m"
+
+    docker run --rm \
+        -v $(pwd):/opt \
+        -w /opt \
+        laravelsail/php81-composer:latest \
+        composer install \
+    
+    echo -e "\033[1;35m Composer package installed! \033[0m"
+fi
+
+if [ "$(docker volume ls -q -f name=zircon_rso)" ]; then
+    echo -e "\033[1;35m zircon_rso already exists, project will use it instead! \033[0m"
+else
+    docker volume create -d local zircon_rso
+    echo -e "\033[1;35m zircon_rso volume created! \033[0m"
+fi
+
+SHARED_NETWORK=zircon_ps_network
+if [[ "$(docker network ls | grep "${SHARED_NETWORK}")" == "" ]] ; then
+    docker network create "${SHARED_NETWORK}"
+    echo -e "\033[1;35m ${SHARED_NETWORK} network created! \033[0m"
+else 
+    echo -e "\033[1;35m ${SHARED_NETWORK} shared network already exists, project will use it instead! \033[0m"
+fi
+
+# Run shared docker services across all branches
+bash ./docker/dev/shared/up
+echo -e "\033[1;35m Shared zircon PS docker services created! \033[0m"
+
+# Login to nexus
+if ! grep -q "nexus01.leekie.com:8483" ~/.docker/config.json ; then
+    echo -e "\033[1;35m Login to nexus private registry \033[0m"
+    docker login nexus01.leekie.com:8483
+fi
+
+echo -e "\033[1;35m Done! You can customize the .env file & start running docker and sail commands now. \033[0m"

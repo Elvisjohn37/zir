@@ -1,0 +1,22 @@
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_main';
+
+.spinnerWrap {
+	@include helpers_childPosition('.spinnerArea');
+	height: 100%;
+	width: 100%;
+	padding: $main_standardSpace;
+	line-height: 0px;
+}
+
+.spinnerArea {
+	height: 40px;
+	width: 40px;
+	max-width: 100%;
+	max-height: 100%;
+
+	> * {
+		height: 100% !important;
+		width: 100% !important;
+	}
+}

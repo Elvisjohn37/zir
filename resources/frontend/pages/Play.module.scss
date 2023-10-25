@@ -1,0 +1,114 @@
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+// LOGO $play_logoWidth: 180px;
+$play_headerHeight: 80px;
+$play_playableBalanceMaxWidth: 220px;
+$play_maxPayoutMaxWidth: 220px;
+$play_balancesTotalWidth: $play_playableBalanceMaxWidth + $main_standardSpace + $play_maxPayoutMaxWidth;
+
+.header {
+	height: $play_headerHeight;
+	background: $colors_sLight;
+	// LOGO background: lighten($colors_sLight, 3%);
+	position: relative;
+	overflow: hidden;
+}
+
+// LOGO .logoContainer {
+// LOGO 	@include helpers_logoContainer($play_logoWidth);
+// LOGO 	height: 100%;
+// LOGO }
+
+// LOGO .logoImage {
+// LOGO 	@include helpers_vCenter();
+// LOGO }
+
+.headerContent {
+	// LOGO padding-left: $play_logoWidth + 54px; // additional 54px is for logo slant
+	text-align: right;
+	height: 100%;
+}
+
+.body {
+	height: 100%;
+	padding-top: $play_headerHeight;
+	margin-top: -$play_headerHeight;
+
+	&.mobileBody {
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+}
+
+.content {
+	height: 100%;
+	background: #000000;
+	position: relative;
+}
+
+.maxPayoutIcon {
+	display: none;
+}
+
+.maxPayout {
+	@include helpers_amountBox();
+}
+
+.maxPayoutWrapper,
+.accountBalance {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.maxPayoutWrapper {
+	margin-right: calc($main_standardSpace/2);
+}
+
+.topContainer,
+.bottomContainer {
+	height: 50%;
+	padding: 0px $main_standardSpace + calc($main_standardSpace / 2);
+}
+
+.runningDateTime {
+	padding: $main_standardSpace;
+}
+
+.gameIframe {
+	display: block;
+	box-shadow: none;
+	border: none;
+	background: none;
+	width: 100%;
+	height: 100%;
+}
+
+.iframeSpinner {
+	position: absolute;
+	bottom: 0px;
+}
+
+.balancesWrapper {
+	margin-left: -$play_balancesTotalWidth;
+	display: inline-block;
+	font-size: $main_fontSize;
+	position: absolute;
+	right: $main_standardSpace * 2;
+}
+
+.announcementWrapper {
+	padding-right: $play_balancesTotalWidth;
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+	line-height: 0px;
+
+	> * {
+		line-height: normal;
+	}
+}
+
+.zeroBalanceMessage {
+	color: $colors_error !important;
+}

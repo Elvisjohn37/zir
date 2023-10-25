@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`</BetInfoIframe> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="betInfoIframe eyecon"
+  >
+    <iframe
+      data-testid="SeamlessIframe"
+      height="600"
+      scrolling="1"
+      src="www.game.com"
+      width="400"
+    />
+  </div>
+</DocumentFragment>
+`;

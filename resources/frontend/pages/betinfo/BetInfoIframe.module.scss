@@ -1,0 +1,27 @@
+.betInfoIframe {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+
+	.iframeSpinner {
+		position: absolute;
+		bottom: 0px;
+	}
+
+	&.eyecon > div {
+		margin-top: -54px;
+
+		@media screen and (max-width: 385px) {
+			margin-top: -55px;
+		}
+
+		@media screen and (max-width: 360px) {
+			margin-top: -52px;
+		}
+
+		@media screen and (max-width: 355px) {
+			margin-top: -50px;
+		}
+	}
+}

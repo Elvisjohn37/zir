@@ -1,0 +1,119 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_colors';
+
+.buttons {
+	margin-top: $main_standardSpace;
+	text-align: right;
+	width: 100%;
+
+	> * {
+		margin: 0px calc($main_standardSpace/2);
+		margin-top: $main_standardSpace;
+	}
+}
+
+.errorIcon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	opacity: 0.5;
+
+	svg {
+		transform: perspective(600px) rotateX(48deg) rotateY(-23deg) rotateZ(35deg) translate(-201%, -134%) scale(15);
+	}
+}
+
+.alertContainer {
+	border-radius: 20px;
+	position: relative;
+	width: fit-content;
+	margin: auto;
+	margin-top: $main_standardSpace;
+	@include colors_secondary(0.7);
+	background: linear-gradient(135deg, darken($colors_secondary, 20%), $colors_secondary 40%, transparent);
+	text-align: center;
+	padding: $main_standardSpace * 4;
+	min-height: 249px;
+}
+
+.message {
+	z-index: 1;
+	position: relative;
+	padding: $main_standardSpace;
+	box-shadow: 0px 2px 4px rgba(#000, 20%);
+	border-radius: $main_radius;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: darken($colors_pDark, 50%);
+		opacity: 0.4;
+		left: 0%;
+		top: 0%;
+		z-index: -1;
+	}
+}
+
+.parent {
+	@include colors_body_gradient;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 1301;
+}
+
+.container {
+	@include helpers_vCenter;
+}
+
+.title {
+	text-transform: uppercase;
+	color: $colors_error;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.refNo {
+	padding: $main_standardSpace 0px;
+	font-size: $main_fontSize - 2px;
+	opacity: 0.7;
+}
+
+.errorPage {
+	@include helpers_center(absolute);
+}
+
+.errorLight {
+	padding: $main_standardSpace * 3;
+	text-align: center;
+	font-size: $main_fontSize + 6px;
+}
+
+.errorLightIconContainer {
+	background: $colors_pText;
+	border-radius: $main_radius;
+	display: inline-block;
+	color: $colors_pLight;
+	padding: calc($main_standardSpace/2);
+	line-height: 0px;
+	margin-bottom: $main_standardSpace;
+
+	.errorLightIcon {
+		font-size: $main_fontSize * 3;
+	}
+}
+
+.errorLightIconContainer,
+.errorLightMessageContainer {
+	opacity: 0.3;
+}
+
+.errorLightButtonsContainer {
+	margin-top: $main_standardSpace;
+	text-align: center;
+}

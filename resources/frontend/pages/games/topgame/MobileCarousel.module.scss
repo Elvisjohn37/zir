@@ -1,0 +1,17 @@
+@import 'frontend/assets/scss/_main';
+
+.card {
+	width: 100%;
+	user-select: none;
+}
+
+.carousel {
+	position: relative;
+	display: block;
+	margin-left: -$main_standardSpace * 2;
+	margin-right: -$main_standardSpace * 2;
+}
+
+.inactive {
+	filter: brightness(80%);
+}

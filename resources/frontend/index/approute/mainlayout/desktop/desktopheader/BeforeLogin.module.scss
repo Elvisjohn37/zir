@@ -1,0 +1,30 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.menuTabs {
+	&,
+	.menuTab {
+		min-height: $main_menuHeight;
+	}
+
+	.menuTab {
+		padding: $main_standardSpace;
+		color: $colors_sText;
+
+		&:hover {
+			color: lighten($colors_sText, 5%);
+
+			* {
+				color: lighten($colors_sText, 5%);
+			}
+		}
+
+		* {
+			color: $colors_sText;
+		}
+	}
+
+	svg {
+		color: $colors_sText;
+	}
+}

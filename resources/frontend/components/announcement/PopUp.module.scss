@@ -1,0 +1,67 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_keyframes';
+
+.dontShowAgainContainer {
+	bottom: -42px - $main_standardSpace;
+	width: 100%;
+	text-align: center;
+
+	.dontShowAgainContent {
+		color: $colors_sText;
+		display: inline-block;
+		background: rgba(0, 0, 0, 0.5);
+		padding-right: $main_standardSpace;
+		border-radius: $main_radius;
+	}
+}
+
+.popupAnnouncementContainer {
+	background-color: transparent !important;
+	box-shadow: none !important;
+	border-radius: 0px;
+	color: $colors_sText !important;
+
+	.buttonAnnouncement1,
+	.buttonAnnouncement2,
+	.buttonAnnouncement3 {
+		bottom: 49px + $main_standardSpace;
+	}
+
+	.buttonAnnouncement1 {
+		left: $main_standardSpace;
+		position: absolute;
+	}
+
+	.buttonAnnouncement2 {
+		@include helpers_hCenter(absolute);
+	}
+
+	.buttonAnnouncement3 {
+		right: $main_standardSpace;
+	}
+}
+
+.modalTitle {
+	text-align: right;
+}
+
+.closeButton {
+	color: $colors_sText !important;
+	font-size: $main_standardSpace;
+	z-index: 3;
+}
+
+.modalBody {
+	padding: 0px $main_standardSpace * 2;
+	padding-bottom: $main_standardSpace * 2;
+
+	.popupAnnouncementContent {
+		position: relative;
+	}
+}
+
+:export {
+	main_mobile: $main_mobile;
+}

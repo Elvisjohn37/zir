@@ -1,0 +1,30 @@
+@import 'frontend/assets/scss/_main';
+
+.block {
+	margin: 0 auto;
+	width: 624px;
+	max-width: 100%;
+
+	+ .block {
+		margin-top: $main_standardSpace * 3;
+	}
+}
+
+.paragraph {
+	margin-top: $main_standardSpace * 2;
+}
+
+.skeleton {
+	margin: 0 auto;
+	text-align: center;
+	padding-left: 0px;
+	padding-right: 0px;
+
+	> span {
+		max-width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}

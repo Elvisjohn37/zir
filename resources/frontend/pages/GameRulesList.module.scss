@@ -1,0 +1,31 @@
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_main';
+
+$GamesRulesList_newTagWidth: 32px;
+
+.button {
+	width: 100%;
+	justify-content: flex-start;
+
+	&.isNew {
+		padding-right: $GamesRulesList_newTagWidth + ($main_standardSpace * 2);
+	}
+}
+
+.newTag {
+	background: rgba($colors_pDark, 0.6);
+	font-weight: normal;
+	font-size: $main_fontSize - 4px;
+	padding: 0px calc($main_standardSpace/4);
+	border-radius: $main_radius;
+	position: absolute;
+	right: $main_standardSpace;
+	top: 9.5px;
+	max-width: $GamesRulesList_newTagWidth;
+}
+
+.backButtonContainer {
+	margin-top: $main_standardSpace;
+	margin-bottom: $main_standardSpace * 2;
+	margin-left: -$main_standardSpace;
+}

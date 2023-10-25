@@ -1,0 +1,51 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$border: darken($colors_sLight, 15%);
+:export {
+	main_mobile: $main_mobile;
+}
+
+.tableSection {
+	padding: $main_standardSpace * 2 $main_standardSpace;
+	padding-top: 0px;
+
+	@media (max-device-width: $main_tablet) {
+		padding-top: $main_standardSpace * 2;
+	}
+
+	position: relative;
+}
+
+.colHeaderRowNum {
+	@include helpers_setTableColWidth(30px);
+}
+
+.colHeaderDateTime {
+	@include helpers_setTableColWidth(80px);
+}
+
+.colHeaderGameDetails {
+	@include helpers_setTableColWidth(150px);
+}
+
+.colHeaderGameResult {
+	@include helpers_setTableColWidth(55px);
+}
+
+.colHeaderDescription {
+	@include helpers_setTableColWidth(150px);
+}
+
+.colHeaderStakeTurnover {
+	@include helpers_setTableColWidth(70px);
+}
+
+.colHeaderGrossRake {
+	@include helpers_setTableColWidth(70px);
+}
+
+.colHeaderMemWLCommission {
+	@include helpers_setTableColWidth(80px);
+}

@@ -1,0 +1,142 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+@mixin helpers_vCenter($position: relative) {
+	position: $position;
+	top: 50%;
+	transform: translateY(-50%);
+	backface-visibility: hidden;
+}
+
+@mixin helpers_hCenter($position: relative) {
+	position: $position;
+	left: 50%;
+	transform: translateX(-50%);
+	backface-visibility: hidden;
+}
+
+@mixin helpers_clearfix() {
+	&::after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+@mixin helpers_center($position: fixed) {
+	position: $position;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	backface-visibility: hidden;
+}
+
+@mixin helpers_childPosition($child_selector, $position: middle) {
+	text-align: center;
+	font-size: 0px;
+
+	&:before {
+		content: '';
+		height: 100%;
+		width: 1px;
+		display: inline-block;
+		vertical-align: $position;
+		margin-left: -1px;
+	}
+
+	#{$child_selector} {
+		max-width: 100%;
+		text-align: left;
+		display: inline-block;
+		vertical-align: $position;
+	}
+
+	> * {
+		font-size: $main_fontSize;
+	}
+}
+
+@mixin helpers_logoContainer($logoWidth) {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	height: 100%;
+	background: $colors_sDark;
+	width: $logoWidth;
+	z-index: 3;
+	border-bottom: 1px solid $colors_sDark;
+
+	img {
+		@include helpers_vCenter(absolute);
+		max-width: 100%;
+	}
+
+	&::after,
+	&::before {
+		content: '';
+		position: absolute;
+		display: block;
+		transform: skewX(-20deg);
+		top: 0px;
+		bottom: -1px;
+		z-index: -1;
+	}
+	&::after {
+		background: $colors_sDark;
+		width: 75px;
+		right: -20px;
+		border-bottom: 1px solid rgba($colors_secondary, 0.2);
+	}
+
+	&::before {
+		background: $colors_sDark;
+		width: 75px;
+		right: -34px;
+	}
+}
+
+@mixin helpers_setTableColWidth($width) {
+	width: $width;
+	min-width: $width;
+	max-width: $width;
+}
+
+@mixin helpers_amountBox() {
+	@include colors_secondary();
+	display: flex;
+	border-radius: $main_radius;
+	align-items: center;
+	padding: 0px calc($main_standardSpace/2);
+
+	.amountFigure {
+		display: inline-block;
+	}
+
+	.amountIcon {
+		display: flex;
+		color: $colors_sText !important;
+		font-size: $main_fontSize + 5px;
+		padding: calc($main_standardSpace/2);
+		padding-right: 0px;
+	}
+
+	.amountText {
+		display: flex;
+		padding: calc($main_standardSpace/2);
+		flex-grow: 1;
+		width: 1%;
+	}
+
+	.amountRefresh {
+		display: flex;
+		padding: calc($main_standardSpace/2);
+		background: rgba($colors_primary, 0.08);
+		transition: $main_transition;
+		border-radius: $main_radius;
+		cursor: pointer;
+
+		&:hover {
+			background: rgba($colors_primary, 0.3);
+		}
+	}
+}

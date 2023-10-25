@@ -1,0 +1,42 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+$menuHeight: 34px;
+
+.desktopDateRangeLoader,
+.mobileDateRangeLoader {
+	width: 100%;
+	display: flex;
+}
+
+.dateTabIndicator {
+	height: 100% !important;
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+}
+
+.dateButton {
+	border: 0px !important;
+	min-height: $menuHeight;
+}
+
+.mobileDateRangeLoader {
+	padding: 0px;
+
+	> span {
+		margin: 0px;
+	}
+}
+
+.mobileDateRangeButton {
+	width: 100%;
+}
+
+.mobileDateRangeIcon {
+	position: absolute;
+	right: $main_standardSpace;
+	background: rgba($colors_secondary, 0.08);
+	border-radius: $main_radius;
+	color: $colors_secondary;
+	padding: calc($main_standardSpace/4);
+}

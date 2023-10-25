@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorMessageDisplay /> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="Container"
+    maxwidth="lg"
+  >
+    <div
+      data-testid="default"
+      response="{\\"data\\":\\"test data\\"}"
+    />
+  </div>
+</DocumentFragment>
+`;

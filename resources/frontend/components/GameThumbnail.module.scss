@@ -1,0 +1,421 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$GameThumbnail_radius: 10px;
+$GameThumbnail_radiusMobile: 7px;
+
+@keyframes playPreview {
+	0% {
+		opacity: 0;
+		transform: translateX(0%);
+	}
+
+	5% {
+		opacity: 1;
+	}
+	95% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+}
+
+.gameLoaderItem,
+.gameItem {
+	width: 100%;
+}
+
+.gameItem {
+	padding: calc($main_standardSpace/4);
+	flex: 0 0 auto;
+	position: relative;
+	line-height: 0px;
+	overflow: visible;
+
+	&.mobile {
+		.newGameTagContainer {
+			top: -$main_standardSpace;
+			left: -$main_standardSpace;
+			height: 55px;
+			width: 45px;
+
+			&::before {
+				content: '';
+				background-color: darken($colors_newTagBg, 3%);
+				position: absolute;
+				height: 35px;
+				width: 7px;
+			}
+
+			.newGameTagContent {
+				padding: 0px;
+				font-size: $main_fontSize - 3px;
+			}
+		}
+
+		.topGameContainer {
+			top: -$main_standardSpace;
+			right: -($main_standardSpace/2);
+
+			img {
+				width: 28px;
+			}
+		}
+
+		.gameItemButton {
+			&.hasNoPreview {
+				&::after {
+					border-radius: $GameThumbnail_radiusMobile;
+				}
+			}
+		}
+
+		.gameItemWrapper {
+			border-radius: $GameThumbnail_radiusMobile;
+
+			.gameThumbnailWrap {
+				border-radius: $GameThumbnail_radiusMobile;
+			}
+		}
+	}
+
+	&.disabled {
+		.gameItemWrapper {
+			z-index: 0 !important;
+			transform: scale(1) !important;
+			box-shadow: none !important;
+		}
+	}
+
+	.gameItemContainer {
+		height: 100%;
+		width: 100%;
+		position: relative;
+	}
+
+	.gamePreview {
+		width: 2500%;
+		height: 100%;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		opacity: 0;
+		backface-visibility: hidden;
+	}
+
+	.notAvailableContainer {
+		background: rgba(darken($colors_sDark, 100%), 0.4);
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+		border-radius: $GameThumbnail_radius;
+
+		.notAvailableContent {
+			position: absolute;
+			bottom: $main_standardSpace/2;
+			right: $main_standardSpace/2;
+		}
+
+		.notAvailableText {
+			@include colors_error();
+			width: fit-content;
+			border-radius: $GameThumbnail_radius;
+			text-transform: uppercase;
+			display: inline-block;
+			font-size: $main_fontSize - 2px;
+			line-height: normal;
+			padding: $main_standardSpace/4 $main_standardSpace/1.5;
+
+			@media only screen and (max-width: 400px) {
+				font-size: $main_fontSize - 4px;
+			}
+		}
+	}
+
+	&:hover,
+	&:focus {
+		.gamePreview.loaded {
+			animation: playPreview steps(25) 5s infinite;
+		}
+	}
+
+	.gameItemButton {
+		padding: 0px;
+		width: 100%;
+		position: relative;
+
+		&.hasNoPreview {
+			&::after {
+				content: '';
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				display: block;
+				top: 0px;
+				left: 0px;
+				border-radius: $GameThumbnail_radius;
+				opacity: 0;
+				transition: $main_transition;
+				box-shadow: inset 3px 3px 10px rgba($colors_sYellow, 0.2),
+					inset -3px -3px 10px rgba($colors_sYellow, 0.2), inset 6px 6px 10px rgba($colors_sYellow, 0.15),
+					inset -6px -6px 10px rgba($colors_sYellow, 0.15), inset 9px 9px 15px rgba($colors_sYellow, 0.15),
+					inset -9px -9px 15px rgba($colors_sYellow, 0.15);
+			}
+
+			&:hover {
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.gameItemButtonLabel {
+		text-align: left;
+		text-transform: none;
+		color: $colors_sText;
+	}
+
+	a {
+		color: unset;
+	}
+
+	.gameItemWrapper {
+		@include colors_primary();
+		line-height: normal;
+		width: 100%;
+		border-radius: $GameThumbnail_radius;
+		position: relative;
+		transition: background 0ms, z-index 0ms, all $main_transition;
+		box-shadow: rgb(0 0 0 / 0%) 0px 5px 5px -3px, rgb(0 0 0 / 0%) 0px 8px 10px 1px, rgb(0 0 0 / 0%) 0px 3px 14px 2px;
+
+		&.noScaleUp {
+			z-index: 0 !important;
+			transform: scale(1) !important;
+		}
+
+		.gameThumbnailWrap {
+			overflow: hidden;
+			position: relative;
+			line-height: 0px;
+			border-radius: $GameThumbnail_radius;
+
+			.gamePreview {
+				width: 2500%;
+				height: 100%;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				opacity: 0;
+				backface-visibility: hidden;
+			}
+
+			.gameThumbnailImg {
+				width: 100%;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.gameFiller {
+	opacity: 0;
+	cursor: auto;
+}
+
+@media screen and (min-width: $main_tablet) {
+	.gameFiller:nth-child(6),
+	.gameFiller:nth-child(6) + .gameFiller,
+	.gameFiller:nth-child(6) + .gameFiller + .gameFiller,
+	.gameFiller:nth-child(6) + .gameFiller + .gameFiller + .gameFiller,
+	.gameFiller:nth-child(6) + .gameFiller + .gameFiller + .gameFiller + .gameFiller,
+	.gameFiller:nth-child(-n + 5),
+	.gameActual:nth-child(5) + .gameFiller {
+		display: none;
+	}
+}
+
+@media screen and (max-width: $main_tablet) {
+	.gameFiller + .gameFiller,
+	.gameActual:nth-child(2n) + .gameFiller {
+		display: none;
+	}
+}
+
+.newGameTagContainer {
+	position: absolute;
+	z-index: 2;
+	top: -$main_standardSpace;
+	left: -($main_standardSpace * 1.5);
+	overflow: hidden;
+	height: 60px;
+	width: 55px;
+
+	&::before {
+		content: '';
+		background-color: darken($colors_newTagBg, 3%);
+		position: absolute;
+		height: 40px;
+		width: 12px;
+		top: 3px;
+		left: 3px;
+		border-radius: 50px 0px 0px 40px;
+		z-index: -1;
+	}
+
+	.newGameTagContent {
+		background-color: $colors_newTagBg;
+		text-align: center;
+		color: $colors_sText;
+		display: block;
+		padding: $main_standardSpace/4 0px;
+		text-align: center;
+		width: 100%;
+		font-size: $main_fontSize - 1px;
+		z-index: 1;
+		font-weight: bold;
+		border-radius: 20px 20px 20px 0px;
+		border: 3px solid $colors_primary;
+		background: linear-gradient(270deg, lighten($colors_newTagBg, 25%) 0%, $colors_newTagBg 35%);
+	}
+}
+
+.gameLoader {
+	padding: $main_standardSpace * 5;
+
+	&.mobile {
+		padding: $main_standardSpace * 2;
+	}
+}
+
+.gameLoaderItem {
+	position: relative;
+	display: inline-block;
+	border-radius: 15px;
+	overflow: hidden;
+
+	@media screen and (max-width: $main_tablet) {
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5) {
+			display: none;
+		}
+	}
+}
+
+.loaderTitle {
+	margin-bottom: $main_standardSpace * 2;
+
+	span {
+		margin: 0px;
+		padding: calc($main_standardSpace/4);
+	}
+}
+
+.gameLoaderContent {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100% !important;
+	padding: calc($main_standardSpace/4);
+	padding: 0px;
+	line-height: 0px;
+
+	> span {
+		width: 100%;
+		height: 100% !important;
+		margin: 0px;
+	}
+}
+
+.gameLoaderImg {
+	opacity: 0;
+	width: 100%;
+}
+
+.gameName {
+	opacity: 0;
+	z-index: -1;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.topGameContainer {
+	position: absolute;
+	top: -$main_standardSpace - 2px;
+	right: -($main_standardSpace/2) - 2px;
+	line-height: 0px;
+	color: $colors_pYellow;
+	z-index: 3;
+}
+
+.gameThumbnailTopContainer {
+	position: relative;
+	padding-left: 14%;
+	padding-right: 9%;
+	padding-top: 5.5%;
+	padding-bottom: 4.5%;
+
+	&.mobile {
+		.number {
+			font-size: 5.6vw;
+			top: 6%;
+			left: 6%;
+		}
+
+		.gameThumbnail {
+			padding: $main_standardSpace/1.5;
+		}
+	}
+
+	.gameThumbnail {
+		width: 100%;
+		padding: $main_standardSpace;
+	}
+
+	.blueBg {
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		position: absolute;
+	}
+
+	.blueBgImg {
+		width: 100%;
+		padding: $main_standardSpace;
+		opacity: 0;
+
+		img {
+			width: 100%;
+		}
+
+		&.loaded {
+			opacity: 1;
+		}
+	}
+
+	.number {
+		color: lighten($colors_sText, 7%);
+		position: absolute;
+		font-size: 2.8vw;
+		top: 3%;
+		left: 5%;
+		font-weight: bold;
+
+		$largeDesktop: $main_bigDesktop + 1;
+
+		@media (min-width: $largeDesktop) {
+			font-size: 2vw;
+		}
+	}
+}

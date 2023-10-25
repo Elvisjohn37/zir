@@ -1,0 +1,49 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.text {
+	text-transform: capitalize;
+
+	&.nolink {
+		color: $colors_pText;
+		padding: calc($main_standardSpace/2);
+		font-size: $main_fontSize + 6px;
+		font-weight: bold;
+	}
+}
+
+.separator {
+	margin: 0px !important;
+
+	svg {
+		color: rgba($colors_pText,.5);
+	}
+}
+
+.breadcrumb {
+	.link {
+		color: $colors_pText;
+		opacity: 0.5;
+		padding: 0px;
+
+		* {
+			color: $colors_pText ;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	@media screen and (max-width: $main_mobile) {
+		font-size: $main_fontSize + 2px;
+	}
+}
+
+.separatorIcon {
+	font-size: $main_fontSize !important;
+}
+
+:export {
+	main_mobile: $main_mobile;
+}

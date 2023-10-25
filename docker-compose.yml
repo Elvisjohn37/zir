@@ -1,0 +1,107 @@
+version: '3'
+services:
+  zircon_ps:
+    image: zircon_ps_dev
+    hostname: ${APP_HOSTNAME:-zircon_ps}
+    build:
+      context: .
+      target: development
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    ports:
+      - ${APP_PORT:-80}:80
+      - ${WPDS_PORT:-3000}:${WPDS_PORT:-3000}
+    environment:
+      WWWUSER: '${WWWUSER}'
+      LARAVEL_SAIL: 1
+    volumes:
+      - ./:/var/www/html
+      - ${NPM_CACHE:-/var/www/html/npm/cache}:/root/.npm
+    depends_on:
+      - zircon_admin_api
+    networks:
+      - sail
+    extra_hosts:
+      - '${GAME_API_HOST:-games-api-stg.stry628c.com}:${GAME_API_IP:-116.66.249.92}'
+      - '${SBO_MOBILE_HOST:-play.sbotry.com}:${SBO_MOBILE_IP:-35.194.199.216}'
+  zircon_ps_mobile:
+    image: zircon_ps_dev
+    hostname: ${APP_HOSTNAME:-zircon_ps}
+    ports:
+      - ${APP_MOBILE_PORT:-8080}:80
+      - ${WPDS_MOBILE_PORT:-3001}:${WPDS_MOBILE_PORT:-3001}
+    environment:
+      WWWUSER: '${WWWUSER}'
+      LARAVEL_SAIL: 1
+      APP_IS_MOBILE: 'true'
+    volumes:
+      - ./:/var/www/html
+      - ${NPM_CACHE:-/var/www/html/npm/cache}:/root/.npm
+    depends_on:
+      - zircon_admin_api
+      - zircon_ps
+    networks:
+      - sail
+    extra_hosts:
+      - '${GAME_API_HOST:-games-api-stg.stry628c.com}:${GAME_API_IP:-116.66.249.92}'
+      - '${SBO_MOBILE_HOST:-play.sbotry.com}:${SBO_MOBILE_IP:-35.194.199.216}'
+  zircon_admin_api:
+    image: nexus01.leekie.com:8483/zircon_admin_api:latest
+    ports:
+      - ${ADMIN_API_PORT:-8080}:80
+    env_file:
+      - .env.api
+    networks:
+      - sail
+  zircon_adapter_api:
+    image: nexus01.leekie.com:8483/zircon_adapter_api:latest
+    ports:
+      - ${ADAPTER_API_PORT:-8081}:80
+    env_file:
+      - .env.adapterapi
+    networks:
+      - sail
+  cronjob:
+    image: alpine
+    command: sh -c "crontab /tasks.cron && crond -f -L /dev/stdout"
+    volumes:
+      - ./docker/dev/tasks.cron:/tasks.cron
+    depends_on:
+      - zircon_ps
+    networks:
+      - sail
+  # meilisearch:
+  #   image: 'getmeili/meilisearch:latest'
+  #   ports:
+  #     - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
+  #   volumes:
+  #     - 'sailmeilisearch:/data.ms'
+  #   networks:
+  #     - sail
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    hostname: ${FORWARD_MAILHOG_HOSTNAME:-mailhog}
+    ports:
+      - '${FORWARD_MAILHOG_PORT:-1025}:1025'
+      - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
+    networks:
+      - sail
+  # selenium:
+  #   image: 'selenium/standalone-chrome'
+  #   volumes:
+  #     - '/dev/shm:/dev/shm'
+  #   networks:
+  #     - sail
+  # webserver:
+  #   image: zircon_webserver
+  #   build: ./docker/webserver/
+  #   command: sh -c "echo -e '\033[1;35m Base image built \033[0m'"
+
+networks:
+  sail:
+    external: true
+    name: zircon_ps_network
+
+volumes:
+  sailmeilisearch:
+    driver: local

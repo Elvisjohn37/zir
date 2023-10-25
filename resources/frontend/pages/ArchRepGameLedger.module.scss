@@ -1,0 +1,138 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$border: darken($colors_sLight, 15%);
+
+:export {
+	main_mobile: $main_mobile;
+}
+
+.container {
+	padding: 0 $main_standardSpace * 2;
+	margin-bottom: $main_standardSpace;
+}
+
+.dateList {
+	display: inline-flex;
+	text-transform: none;
+	padding: 0px 5px;
+	display: flex;
+	.item {
+		padding: 0px 5px;
+		text-align: center;
+		.textItem > span {
+			font-size: $main_fontSize - 1;
+			font-weight: bold;
+		}
+	}
+}
+.tableSection {
+	position: relative;
+
+	.dateTimePickerContainer {
+		width: 100%;
+		display: inline-flex;
+	}
+	.datePicker {
+		width: 200px;
+	}
+	.datePicker,
+	.dateLabel,
+	.searchBtn,
+	.prevBtn,
+	.nextBtn {
+		// display: inline-grid;
+		min-width: 0px;
+		margin: calc($main_standardSpace/5);
+	}
+	.btnLabel {
+		@media screen and (max-width: $main_desktop - 1) {
+			display: none;
+		}
+	}
+
+	.logNotice {
+		margin-top: $main_standardSpace;
+		font-size: $main_fontSize - 2;
+	}
+
+	.timeZoneNotice {
+		font-size: $main_fontSize - 2;
+		margin-bottom: $main_standardSpace;
+		font-weight: bold;
+	}
+
+	.dateButton {
+		border: 0px !important;
+	}
+
+	.dateTabIndicator {
+		height: 100% !important;
+		background: rgba(0, 0, 0, 0.08);
+	}
+}
+
+.desktopDateRangeLoader,
+.mobileDateRangeLoader {
+	width: 100%;
+	display: flex;
+}
+
+.mobileDateRangeLoader {
+	padding: 0px;
+
+	> span {
+		margin: 0px;
+	}
+}
+
+.mobileDateRangeButton {
+	width: 100%;
+}
+
+.mobileDateRangeIcon {
+	position: absolute;
+	right: $main_standardSpace;
+	background: rgba($colors_secondary, 0.08);
+	border-radius: $main_radius;
+	color: $colors_secondary;
+	padding: calc($main_standardSpace/4);
+}
+
+.colHeaderDateTime {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderGameDetails {
+	@include helpers_setTableColWidth(270px);
+}
+
+.colHeaderVersion {
+	@include helpers_setTableColWidth(55px);
+}
+
+.colHeaderEvent {
+	@include helpers_setTableColWidth(55px);
+}
+.colHeaderDebit {
+	@include helpers_setTableColWidth(60px);
+}
+
+.colHeaderCredit {
+	@include helpers_setTableColWidth(60px);
+}
+.colHeaderPlaybleBalance {
+	@include helpers_setTableColWidth(80px);
+}
+
+.backButton {
+	min-width: unset;
+}
+
+.refreshButton {
+	text-transform: unset;
+	> span {
+		font-size: $main_fontSize - 1;
+	}
+}

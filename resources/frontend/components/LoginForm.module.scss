@@ -1,0 +1,21 @@
+@import 'frontend/assets/scss/_main';
+
+.content,
+.maintenanceDisplay {
+	overflow: hidden;
+	max-width: 100%;
+}
+
+.maintenanceDisplay {
+	text-align: left;
+
+	@media screen and (max-width: $main_tablet) {
+		* {
+			font-size: $main_fontSize - 2px;
+		}
+	}
+}
+
+.content {
+	max-height: 34px;
+}

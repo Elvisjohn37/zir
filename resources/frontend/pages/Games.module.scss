@@ -1,0 +1,152 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+$games_searchBarWidth: 330px;
+
+.gamelobby {
+	position: relative;
+
+	.warning {
+		margin-bottom: $main_standardSpace * 2;
+	}
+
+	.gamesBody {
+		position: inherit;
+		p {
+			text-align: center;
+		}
+
+		.gamesMenu {
+			padding: 0px calc($main_standardSpace/2);
+
+			.gameTypeItem {
+				display: block;
+				text-align: center;
+				border-top-left-radius: $main_radius;
+				border-top-right-radius: $main_radius;
+				&.activeGameType {
+					background-color: lighten($colors_sLight, 4%);
+				}
+
+				.gameTypeIcon {
+					padding: calc($main_standardSpace/2) $main_standardSpace;
+					display: block;
+					width: 100%;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.gameContainer {
+		margin: 0;
+		position: inherit;
+		width: 100%;
+		height: 100%;
+		min-height: 470px;
+		background-color: lighten($colors_sLight, 4%);
+		padding-top: $main_standardSpace * 3;
+		padding-bottom: $main_standardSpace * 3;
+
+		@media screen and (max-width: $main_tablet) {
+			padding-top: $main_standardSpace * 2;
+			padding-bottom: $main_standardSpace * 2;
+		}
+
+		.listContainer {
+			display: block;
+
+			.gameItemWrap {
+				display: block;
+				text-align: center;
+				position: relative;
+			}
+		}
+	}
+}
+
+.okayButton a {
+	text-decoration: none;
+	color: $colors_primary;
+}
+
+.subMenuBar {
+	background: darken($colors_pDark, 60%);
+	color: $colors_sText;
+	display: block;
+	padding-left: $main_standardSpace * 5;
+	padding-right: $main_standardSpace * 3 + ($games_searchBarWidth);
+	height: 50px;
+	position: relative;
+	line-height: 0px;
+	z-index: 999;
+
+	&::after {
+		content: '';
+		clear: both;
+		display: block;
+	}
+
+	&.mobileSite {
+		position: sticky;
+		top: 0px;
+		padding: 0px;
+
+		.searchBar {
+			position: relative;
+			width: 100%;
+			right: auto;
+
+			&::after {
+				content: '';
+				clear: both;
+				display: block;
+			}
+		}
+	}
+}
+
+.searchBar {
+	position: absolute;
+	padding: $main_standardSpace $main_standardSpace * 2;
+	width: $games_searchBarWidth;
+	right: $main_standardSpace * 2;
+	top: 0px;
+}
+
+.searchResult {
+	margin-top: $main_standardSpace * 3;
+
+	&.mobile {
+		margin-top: 0px;
+		.searchResultWrapper {
+			padding: $main_standardSpace/2;
+		}
+	}
+}
+
+.searchResultWrapper {
+	flex: 1;
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	padding: 0px $main_standardSpace * 5;
+	padding-bottom: $main_standardSpace * 4;
+
+	> div {
+		padding: $main_standardSpace !important;
+	}
+}
+
+.gameTypeTitle {
+	font-weight: bold;
+	font-size: $main_fontSize + 4px;
+	padding: $main_standardSpace $main_standardSpace * 2;
+	padding-top: $main_standardSpace * 2;
+	padding-bottom: 0px;
+	text-transform: uppercase;
+}
+
+:export {
+	main_transition: $main_transition;
+}

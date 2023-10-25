@@ -1,0 +1,20 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.datePicker,
+.searchBtn {
+	margin-left: calc($main_standardSpace / 2);
+}
+
+.buttonAction {
+	color: $colors_secondary;
+}
+
+.searchBtn {
+	margin-left: $main_standardSpace;
+}
+
+.mobileDatePicker {
+	justify-content: end;
+	padding-right: $main_standardSpace;
+}

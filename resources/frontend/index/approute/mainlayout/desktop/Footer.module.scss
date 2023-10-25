@@ -1,0 +1,39 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.container {
+	font-size: $main_fontSize - 2px;
+	position: relative;
+	text-align: right;
+}
+
+.links {
+	a {
+		display: inline-block;
+		padding: 0px calc($main_standardSpace/2);
+		text-transform: uppercase;
+		color: lighten($colors_pText, 60%) !important;
+		font-weight: bold;
+		font-size: $main_fontSize - 4px;
+		text-decoration: none;
+
+		&:last-child {
+			margin-right: -3px;
+		}
+	}
+
+	.separator {
+		border-left: 1px solid lighten($colors_pText, 50%);
+		border-right: unset;
+	}
+}
+
+@media screen and (min-device-width: 411px) {
+	.separator {
+		border-right: 1px solid lighten($colors_pText, 50%);
+	}
+}
+
+.copyright {
+	margin-top: $main_standardSpace/2;
+}

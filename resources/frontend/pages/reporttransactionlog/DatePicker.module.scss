@@ -1,0 +1,44 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.dateTimePickerContainer {
+	width: 100%;
+	display: inline-flex;
+}
+
+.datePicker,
+.dateLabel,
+.searchBtn,
+.prevBtn,
+.nextBtn {
+	// display: inline-grid;
+	min-width: 0px;
+	margin: 0px $main_standardSpace/3;
+}
+
+.searchBtn {
+	margin-left: $main_standardSpace;
+}
+
+.buttonAction {
+	color: $colors_secondary;
+}
+
+.btnLabel {
+	@media screen and (max-width: $main_desktop - 1) {
+		display: none;
+	}
+}
+
+.mobileDatePicker {
+	justify-content: end;
+}
+
+.dateLabel {
+	opacity:.5;
+}
+
+.logNotice { 
+	margin-top: $main_standardSpace;
+	opacity: .5;
+}

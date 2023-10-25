@@ -1,0 +1,81 @@
+$colors_primary: #ebecf0;
+$colors_pLight: #fdfdfd;
+$colors_pDark: #b9babe;
+$colors_pText: #3e4351;
+
+$colors_secondary: #3a498e;
+$colors_sLight: #e0e9f8;
+$colors_sDark: #002e6c;
+$colors_sText: rgb(234, 238, 250);
+
+$colors_link: lighten($colors_secondary, 10%);
+$colors_linkActive: lighten($colors_link, 20%);
+$colors_mainLayout_bg: darken($colors_sLight, 5%);
+
+$colors_pYellow: #ffe13a;
+$colors_sYellow: #ffe13a;
+
+$colors_sHighlight: #8affff;
+
+$colors_error: #ff1900;
+$colors_errorText: #fff;
+$colors_success: rgb(4, 165, 111);
+
+$colors_newTagBg: #dd0101;
+
+@mixin colors_error($opacity: 1) {
+	background-color: rgba($colors_error, $opacity);
+	color: $colors_errorText;
+}
+
+// mixins
+@mixin colors_primary($opacity: 1) {
+	background-color: rgba($colors_primary, $opacity);
+	color: $colors_pText;
+}
+
+@mixin colors_pLight($opacity: 1) {
+	background-color: rgba($colors_pLight, $opacity);
+	color: $colors_pText;
+}
+
+@mixin colors_pDark($opacity: 1) {
+	background-color: rgba($colors_pDark, $opacity);
+	color: $colors_pText;
+}
+
+@mixin colors_secondary($opacity: 1) {
+	background-color: rgba($colors_secondary, $opacity);
+	color: $colors_sText;
+}
+
+@mixin colors_sLight($opacity: 1) {
+	background-color: rgba($colors_sLight, $opacity);
+	color: $colors_sText;
+}
+
+@mixin colors_sDark($opacity: 1) {
+	background-color: rgba($colors_sDark, $opacity);
+	color: $colors_sText;
+}
+
+@mixin colors_body_gradient {
+	background: $colors_mainLayout_bg;
+	background: linear-gradient(
+		0deg,
+		rgba($colors_mainLayout_bg, 1) 20%,
+		rgba(lighten($colors_mainLayout_bg, 3%), 1) 65%,
+		rgba(lighten($colors_mainLayout_bg, 5%), 1) 100%
+	);
+}
+
+@mixin colors_fading_border {
+	background: $colors_secondary;
+	background: linear-gradient(
+		90deg,
+		rgba($colors_secondary, 0) 0%,
+		rgba($colors_secondary, 0.8) 25%,
+		rgba($colors_secondary, 0.8) 75%,
+		rgba($colors_secondary, 0) 100%
+	);
+}

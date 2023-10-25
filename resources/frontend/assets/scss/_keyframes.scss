@@ -1,0 +1,42 @@
+@mixin fadein($dur: 0.3s, $from: 0) {
+	animation: fadein $dur;
+	@keyframes fadein {
+		from {
+			opacity: $from;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+@mixin slideToLeft($dur: 0.3s, $from: 100%) {
+	animation: slideToLeft $dur linear;
+	@keyframes slideToLeft {
+		from {
+			transform: translateX($from);
+		}
+		to {
+			transform: translateX(-100%);
+		}
+	}
+}
+
+@mixin slideArrow($dur: 0.3s, $delay: 0s) {
+	animation: slideArrow $dur linear infinite;
+	animation-delay: $delay;
+	@keyframes slideArrow {
+		0% {
+			opacity: 0;
+			transform: translateX(100%);
+		}
+		50% {
+			opacity: 1;
+			transform: translateX(-50%) scale(2);
+		}
+		100% {
+			opacity: 0;
+			transform: translateX(-100%) scale(1);
+		}
+	}
+}

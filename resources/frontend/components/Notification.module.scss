@@ -1,0 +1,12 @@
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_colors';
+
+.title {
+	color: $colors_error !important;
+}
+.message {
+	color: $colors_secondary !important;
+}
+.action {
+	color: $colors_sDark;
+}

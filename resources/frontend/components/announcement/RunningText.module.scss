@@ -1,0 +1,60 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_keyframes';
+
+.runningTextAnnouncement {
+	width: 100%;
+	position: relative;
+	display: inline-block;
+	position: relative;
+	width: 100%;
+
+	.announcementContainer {
+		width: 100%;
+		padding: calc($main_standardSpace / 2);
+		background: darken($colors_sLight, 5%);
+		border: 1px solid darken($colors_sLight, 20%);
+		color: $colors_secondary;
+		overflow: hidden;
+		position: relative;
+		border-radius: $main_radius;
+
+		.announcementContent {
+			display: inline-block;
+			width: 100%;
+			display: inline-block;
+			width: max-content;
+			padding-left: 100%;
+
+			&.animateRunningTextAnnouncement {
+				@include slideToLeft(10s, 0);
+				animation-delay: 2s;
+			}
+		}
+
+		.closeRunningAnnouncement {
+			@include helpers_vCenter(absolute);
+			@include colors_primary;
+			right: 0;
+			border-radius: 50px 0 0px 50px;
+			border: 1px solid $colors_sLight;
+
+			.closeIcon {
+				padding: calc($main_standardSpace / 4);
+			}
+		}
+
+		.label {
+			padding: 0 $main_standardSpace 0 $main_standardSpace;
+			background: darken($colors_sLight, 5%);
+			color: $colors_secondary;
+			font-weight: 700;
+			top: 0;
+			left: 0;
+			@include helpers_vCenter(absolute);
+			z-index: 1;
+			border-right: 1px solid darken($colors_sLight, 20%);
+		}
+	}
+}

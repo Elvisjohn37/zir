@@ -1,0 +1,58 @@
+@import 'frontend/assets/scss/_main';
+
+.wrapper {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+
+	&.skeletonFull {
+		height: 100%;
+		width: 100%;
+
+		.item {
+			height: 100%;
+			width: 100%;
+
+			> span {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+
+	&.noWidth {
+		width: 100%;
+
+		.item {
+			width: 100%;
+		}
+	}
+
+	&.noHeight {
+		height: 100%;
+
+		.item {
+			height: 100%;
+
+			> span {
+				height: 100%;
+			}
+		}
+	}
+
+	&.multi {
+		.item {
+			padding: calc($main_standardSpace/2);
+		}
+	}
+
+	.item {
+		display: inline-block;
+		line-height: 0px;
+
+		> span {
+			background-color: rgba(#000, 0.1);
+			background-image: linear-gradient(90deg, rgba(#fff, 0), rgba(#fff, 0.3), rgba(#fff, 0));
+		}
+	}
+}

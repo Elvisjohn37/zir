@@ -1,0 +1,31 @@
+@import 'frontend/assets/scss/_main';
+
+.paginationActionsUl {
+	flex-wrap: nowrap;
+
+	@media screen and (max-width: $main_mobile) {
+		> li {
+			display: none;
+
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-last-child(1),
+			&:nth-last-child(2) {
+				display: list-item;
+			}
+		}
+	}
+}
+
+.paginationActions {
+	margin-left: $main_standardSpace;
+}
+
+.labelDisplayedRows {
+	opacity: 0.8;
+	font-size: $main_fontSize - 2px;
+}
+
+:export {
+	main_mobile: $main_mobile;
+}

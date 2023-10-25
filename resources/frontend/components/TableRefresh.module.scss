@@ -1,0 +1,26 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+.refreshButton {
+	text-transform: unset;
+	> span {
+		font-size: $main_fontSize - 1;
+	}
+}
+.tableDesktopRefresh,
+.tableMobileRefresh {
+	margin-bottom: $main_standardSpace;
+}
+.tableDesktopRefresh {
+	text-align: center;
+	.backButton {
+		position: absolute;
+		left: 0;
+		min-width: unset;
+	}
+}
+.tableMobileRefresh {
+	display: flex;
+	justify-content: space-between;
+}

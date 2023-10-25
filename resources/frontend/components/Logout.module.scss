@@ -1,0 +1,17 @@
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_main';
+
+.logoutBtn {
+	min-width: 50px;
+	font-size: inherit;
+	padding: 3px $main_standardSpace;
+	margin-top: -2px;
+	background: $colors_pYellow !important;
+	box-shadow: none !important;
+	border-radius: 20px;
+	font-weight: bold;
+}
+.sideBarLogout {
+	margin-left: -10px;
+	font-weight: 400;
+}

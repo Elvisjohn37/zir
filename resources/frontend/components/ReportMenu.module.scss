@@ -1,0 +1,18 @@
+@import 'frontend/assets/scss/_main';
+
+.item {
+	text-align: right;
+	padding: 0px;
+	height: 30px;
+	// width: max-content;
+	// float: right;
+	.textItem > span {
+		font-weight: bold;
+		font-size: $main_fontSize;
+	}
+	.iconItem {
+		padding: $main_standardSpace / 3;
+		min-width: 20px;
+	}
+	//change font size
+}

@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DesktopDatePicker/> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    alignitems="center"
+    classes="{\\"root\\":\\"dateTimePickerContainer\\"}"
+    container="true"
+    data-testid="Grid"
+  >
+    <span
+      class="dateLabel"
+    >
+      <div
+        data-testid="FormattedMessage"
+        id="chooseDate"
+      >
+        <div>
+          chooseDate
+        </div>
+      </div>
+    </span>
+    <div
+      classes="{\\"root\\":\\"datePicker\\"}"
+      color="primary"
+      disablecloseonselect="true"
+      error="false"
+      format="MM/dd/yyyy h:mm a"
+      hidetabs="true"
+      maxdate="{\\"type\\":\\"datemock\\",\\"dateTime\\":\\"9/20/2021 4:00:00 PM\\"}"
+      mindate="{\\"type\\":\\"datemock\\",\\"dateTime\\":\\"9/20/2021 4:00:00 PM\\"}"
+      minutesstep="0"
+      value="{\\"type\\":\\"datemock\\",\\"dateTime\\":\\"9/20/2021 4:00:00 PM\\"}"
+      variant="inline"
+      views="[\\"month\\",\\"day\\",\\"hours\\"]"
+    >
+      <input
+        data-testid="DateTimePicker"
+      />
+      <div>
+        {"type":"datemock","dateTime":"9/20/2021 4:00:00 PM"}
+      </div>
+      <div>
+        maxDate: {"type":"datemock","dateTime":"9/20/2021 4:00:00 PM"}
+      </div>
+      <div>
+        minDate: {"type":"datemock","dateTime":"9/20/2021 4:00:00 PM"}
+      </div>
+      <div />
+    </div>
+    <button
+      class="searchBtnIdt"
+      classes="{\\"root\\":\\"searchBtn\\"}"
+      color="secondary"
+      data-testid="Button"
+      variant="contained"
+    >
+      <div
+        data-testid="Search"
+      />
+      <div
+        data-testid="FormattedMessage"
+        id="search"
+      >
+        <div>
+          search
+        </div>
+      </div>
+    </button>
+    <button
+      class="prevBtnIdt"
+      classes="{\\"root\\":\\"prevBtn\\"}"
+      color="secondary"
+      data-testid="Button"
+      variant="outlined"
+    >
+      <div
+        data-testid="NavigateBefore"
+      />
+      <span
+        class="btnLabel"
+      >
+        <div
+          data-testid="FormattedMessage"
+          id="previous"
+        >
+          <div>
+            previous
+          </div>
+        </div>
+      </span>
+    </button>
+    <button
+      class="nextBtnIdt"
+      classes="{\\"root\\":\\"nextBtn\\"}"
+      color="secondary"
+      data-testid="Button"
+      variant="outlined"
+    >
+      <span
+        class="btnLabel"
+      >
+        <div
+          data-testid="FormattedMessage"
+          id="next"
+        >
+          <div>
+            next
+          </div>
+        </div>
+      </span>
+      <div
+        data-testid="NavigateNext"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<MobileDatePicker/> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mobileDatePicker"
+    container="true"
+    data-testid="Grid"
+    justify="flex-end"
+  >
+    <div
+      ampm="true"
+      data-testid="MobileDateTimePicker"
+      disablecloseonselect="true"
+      format="MM/dd/yyyy h:mm a"
+      hidetabs="true"
+      maxdate="\\"2021-09-20T00:00:00.000Z\\""
+      mindate="\\"2021-07-01T00:00:00.000Z\\""
+      minutesstep="0"
+      showtoolbar="false"
+      value="null"
+      variant="dialog"
+      views="[\\"month\\",\\"day\\",\\"hours\\"]"
+    >
+      <div>
+        null
+      </div>
+      <div>
+        maxDate: "2021-09-20T00:00:00.000Z"
+      </div>
+      <div>
+        minDate: "2021-07-01T00:00:00.000Z"
+      </div>
+      <div />
+      <div />
+      <div />
+    </div>
+    <a
+      class="prevBtnIdt"
+      classes="{\\"root\\":\\"prevBtn\\"}"
+      data-testid="Button"
+      variant="outlined"
+    >
+      <div
+        data-testid="NavigateBefore"
+      />
+    </a>
+    <a
+      class="nextBtnIdt"
+      classes="{\\"root\\":\\"nextBtn\\"}"
+      data-testid="Button"
+      variant="outlined"
+    >
+      <div
+        data-testid="NavigateNext"
+      />
+    </a>
+  </div>
+</DocumentFragment>
+`;

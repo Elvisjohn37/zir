@@ -1,0 +1,173 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$border: darken($colors_sLight, 15%);
+
+.financialLedger {
+	.logNotice,
+	.timeIndicated {
+		margin: auto;
+		width: fit-content;
+	}
+
+	.logNotice {
+		margin-top: $main_standardSpace;
+		font-size: $main_fontSize - 2;
+	}
+
+	.timeZoneNotice {
+		font-size: $main_fontSize - 2;
+		margin-bottom: $main_standardSpace;
+		font-weight: bold;
+	}
+
+	.reports {
+		margin-top: $main_standardSpace;
+
+		.totalTransaction {
+			@include colors_sLight;
+
+			td {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.searchSpinner {
+	font-size: $main_standardSpace;
+}
+
+.container {
+	padding: 0 $main_standardSpace * 2;
+	margin-bottom: $main_standardSpace;
+}
+
+.dateList {
+	display: inline-flex;
+	text-transform: none;
+	padding: 0px 5px;
+	display: flex;
+	.item {
+		padding: 0px 5px;
+		text-align: center;
+		.textItem > span {
+			font-size: $main_fontSize - 1;
+			font-weight: bold;
+		}
+	}
+}
+
+.tableSection {
+	position: relative;
+
+	.reportDetails {
+		margin-bottom: $main_standardSpace;
+	}
+
+	.runningBetsNav .totRunBetGrid {
+		position: relative;
+	}
+
+	.dates,
+	.runningBetsNav {
+		margin-bottom: $main_standardSpace;
+	}
+
+	.dateButton {
+		border: 0px !important;
+	}
+
+	.dateTabIndicator {
+		height: 100% !important;
+		background: rgba(0, 0, 0, 0.08);
+	}
+
+	.refreshButton {
+		span {
+			font-size: $main_fontSize;
+			font-weight: 400;
+		}
+
+		.refeshIcon {
+			font-size: $main_fontSize;
+		}
+	}
+}
+
+.desktopRunningBet {
+	display: inline-block;
+	position: absolute;
+	top: 6px;
+	right: 10px;
+}
+
+.desktopDateRangeLoader,
+.mobileDateRangeLoader {
+	width: 100%;
+	display: flex;
+}
+
+.mobileDateRangeLoader {
+	padding: 0px;
+
+	> span {
+		margin: 0px;
+	}
+}
+
+.mobileDateRangeButton {
+	width: 100%;
+}
+
+.mobileDateRangeIcon {
+	position: absolute;
+	right: $main_standardSpace;
+	background: rgba($colors_secondary, 0.08);
+	border-radius: $main_radius;
+	color: $colors_secondary;
+	padding: calc($main_standardSpace/4);
+}
+
+.colHeaderDateTime {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderGameDetails {
+	@include helpers_setTableColWidth(200px);
+}
+
+.colHeadertransactionID {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderEvent {
+	@include helpers_setTableColWidth(55px);
+}
+.colHeaderDebit {
+	@include helpers_setTableColWidth(60px);
+}
+
+.colHeaderCredit {
+	@include helpers_setTableColWidth(60px);
+}
+
+.colHeaderCurrentBalance {
+	@include helpers_setTableColWidth(80px);
+}
+
+:export {
+	main_mobile: $main_mobile;
+}
+
+.backButton {
+	min-width: unset;
+}
+
+.refreshButton {
+	text-transform: unset;
+	> span {
+		font-size: $main_fontSize - 1;
+	}
+}

@@ -1,0 +1,51 @@
+@import 'frontend/assets/scss/_helpers';
+@import 'frontend/assets/scss/_colors';
+
+.videoWrapper {
+	position: relative;
+	display: inline-block;
+	line-height: 0px;
+
+	&.isLoading,
+	&.isError {
+		@include colors_pDark(0.2);
+	}
+
+	> div {
+		display: inline;
+	}
+
+	&.isLoading {
+		.videoTag {
+			opacity: 0;
+		}
+	}
+}
+
+.videoTag {
+	max-width: 100%;
+	max-height: 100%;
+
+	&.hasRatio {
+		@include helpers_center(absolute);
+	}
+}
+
+.placeholder {
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+}
+
+.lazyPlaceholder {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+video {
+	width: 100%;
+}

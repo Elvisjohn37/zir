@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`</CloseGame> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    category="gamewindow"
+    data-testid="LangDataProvider"
+  >
+    <div>
+      gamewindow
+    </div>
+    <div
+      class="loadingMessage"
+    >
+      <div
+        color="primary"
+        data-testid="Spinner"
+      >
+        <div>
+          Loading Spinner
+        </div>
+      </div>
+      <div
+        data-testid="FormattedMessage"
+        id="returningToLobby"
+      >
+        <div>
+          returningToLobby
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,24 @@
+@import 'frontend/assets/scss/_main';
+
+.iframe {
+	display: block;
+	box-shadow: none;
+	border: none;
+	background: none;
+	width: 100%;
+}
+
+.iframeHolder {
+	display: block;
+	box-shadow: none;
+	border: none;
+	background: none;
+	margin: 0 auto;
+}
+
+.parent {
+	width: 100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
+}

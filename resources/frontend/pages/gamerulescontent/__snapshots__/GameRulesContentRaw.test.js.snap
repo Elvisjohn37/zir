@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameRulesContentRaw /> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="Container"
+  >
+    <div
+      class="backButtonContainer"
+    >
+      <button
+        data-testid="IconButton"
+        to="www.zirconloc.com"
+      >
+        <div
+          data-testid="ArrowBack"
+        />
+        <div>
+          {}
+        </div>
+      </button>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        data-testid="GameRulesLoader"
+      />
+      <iframe
+        data-testid="SeamlessIframe"
+        iframeclassname="iframe"
+        iframeholderclassname="iframeHolder isContentLoading"
+        scrolling="no"
+        src="/frame"
+        width="640"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,30 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+.subMenuIndicator {
+	height: 2px;
+	background-color: $colors_sYellow;
+}
+
+.submenuTabs {
+	padding-top: 5px;
+}
+
+.submenuTab {
+	min-height: 0px;
+	padding: $main_standardSpace - 2px $main_standardSpace * 2;
+	color: $colors_sText !important;
+
+	* {
+		color: $colors_sText !important;
+	}
+
+	&:hover,
+	&.selected {
+		color: $colors_sYellow !important;
+
+		* {
+			color: $colors_sYellow !important;
+		}
+	}
+}

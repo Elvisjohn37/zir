@@ -1,0 +1,11 @@
+@import 'frontend/assets/scss/_main';
+
+.bannerImg {
+	width: 100%;
+	padding: 0;
+	transition: $main_transition;
+
+	&:hover {
+		scale: (1.02);
+	}
+}

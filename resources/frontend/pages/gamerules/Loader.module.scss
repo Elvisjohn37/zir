@@ -1,0 +1,9 @@
+.content {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	> span {
+		margin: 0px;
+		max-width: 100%;
+	}
+}

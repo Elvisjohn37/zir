@@ -1,0 +1,99 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+
+$iconButtonLabel_size: 100px;
+$iconButtonLabel_smallSize: 100px;
+
+.contentWrapper {
+	font-size: $main_fontSize - 2px !important;
+}
+
+.button {
+	height: $iconButtonLabel_size;
+	width: $iconButtonLabel_size;
+	align-items: flex-start;
+
+	@media screen and (max-width: 380px) {
+		height: $iconButtonLabel_smallSize;
+		width: $iconButtonLabel_smallSize;
+	}
+
+	&[aria-disabled='true'] {
+		opacity: 0.3;
+	}
+}
+
+a.button * {
+	color: $colors_sText !important;
+
+	@media screen and (max-width: 380px) {
+		font-size: $main_fontSize - 4px;
+	}
+}
+
+.icon {
+	position: relative;
+	background: $colors_secondary;
+	display: inline-block;
+	padding: $main_standardSpace;
+	border-radius: 50%;
+	height: 75px;
+	width: 75px;
+	line-height: 77px;
+	margin-bottom: $main_standardSpace;
+
+	svg {
+		font-size: $main_fontSize * 2.3;
+
+		@media screen and (max-width: 380px) {
+			font-size: $main_fontSize * 2;
+		}
+	}
+}
+
+.label {
+	text-transform: uppercase;
+}
+
+.loader {
+	height: $iconButtonLabel_size;
+	width: $iconButtonLabel_size;
+
+	@media screen and (max-width: 380px) {
+		height: $iconButtonLabel_smallSize;
+		width: $iconButtonLabel_smallSize;
+	}
+
+	.skeletonIcon {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0px;
+		top: 0px;
+		line-height: 0px;
+		padding: 0px;
+		overflow: hidden;
+		border-radius: 50%;
+
+		> span {
+			margin: 0px !important;
+			padding: 0px !important;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.label {
+		padding: 0px $main_standardSpace;
+
+		.skeletonLabel {
+			line-height: 0px;
+			padding: 0px;
+
+			> span {
+				margin: 0px !important;
+				padding: 0px !important;
+			}
+		}
+	}
+}

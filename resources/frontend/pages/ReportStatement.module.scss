@@ -1,0 +1,117 @@
+@import 'frontend/assets/scss/_main';
+@import 'frontend/assets/scss/_colors';
+@import 'frontend/assets/scss/_helpers';
+
+$border: darken($colors_sLight, 15%);
+
+.container {
+	padding: 0 $main_standardSpace * 2;
+	margin-bottom: $main_standardSpace;
+}
+
+.dateList {
+	display: inline-flex;
+	text-transform: none;
+	padding: 0px 5px;
+	display: flex;
+	.item {
+		padding: 0px 5px;
+		text-align: center;
+		.textItem > span {
+			font-size: $main_fontSize - 1;
+			font-weight: bold;
+		}
+	}
+}
+
+.tableSection {
+	position: relative;
+	padding: $main_standardSpace * 2 $main_standardSpace;
+	padding-top: 0px;
+
+	@media (max-device-width: $main_tablet) {
+		padding-top: $main_standardSpace * 2;
+	}
+
+	.runningBetsNav .totRunBetGrid {
+		position: relative;
+	}
+
+	.dates,
+	.runningBetsNav {
+		margin-bottom: $main_standardSpace;
+	}
+
+	.refreshButton {
+		span {
+			font-size: $main_fontSize;
+			font-weight: 400;
+		}
+
+		.refeshIcon {
+			font-size: $main_fontSize;
+		}
+	}
+}
+
+.desktopRunningBet {
+	display: inline-block;
+	position: absolute;
+	top: 6px;
+	right: 10px;
+}
+
+.colHeaderRowNum {
+	@include helpers_setTableColWidth(32px);
+}
+
+.colHeaderDate {
+	@include helpers_setTableColWidth(90px);
+}
+
+.colHeaderType {
+	@include helpers_setTableColWidth(75px);
+}
+
+.colHeaderProduct {
+	@include helpers_setTableColWidth(90px);
+}
+
+.colHeaderTurnover {
+	@include helpers_setTableColWidth(70px);
+}
+
+.colHeaderGrossRake {
+	@include helpers_setTableColWidth(90px);
+}
+
+.colHeaderCommission {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderCashBalance {
+	@include helpers_setTableColWidth(100px);
+}
+
+.colHeaderCredit {
+	@include helpers_setTableColWidth(80px);
+}
+
+.backButton {
+	min-width: unset;
+}
+
+.refreshButton {
+	text-transform: unset;
+	> span {
+		font-size: $main_fontSize - 1;
+	}
+}
+
+.tableContent {
+	margin-top: $main_standardSpace * 2;
+}
+
+:export {
+	main_mobile: $main_mobile;
+}

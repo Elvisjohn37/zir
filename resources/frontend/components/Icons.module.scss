@@ -1,0 +1,74 @@
+[data-id='allGames'] {
+	.cls1,
+	.cls2,
+	.cls4,
+	.cls5 {
+		fill: none;
+	}
+	.cls1,
+	.cls2,
+	.cls3,
+	.cls4,
+	.cls5 {
+		stroke: currentColor;
+		stroke-miterlimit: 10;
+	}
+	.cls1 {
+		stroke-width: 1.19px;
+	}
+	.cls2 {
+		stroke-width: 1.21px;
+	}
+	.cls3 {
+		stroke-width: 0.93px;
+	}
+	.cls4 {
+		stroke-width: 1.82px;
+	}
+	.cls5 {
+		stroke-width: 2.74px;
+	}
+}
+
+[data-id='cardGames'] {
+	.cls1,
+	.cls2,
+	.cls3 {
+		fill: none;
+	}
+	.cls1,
+	.cls2,
+	.cls3,
+	.cls4 {
+		stroke: currentColor;
+		stroke-miterlimit: 10;
+	}
+	.cls1,
+	.cls4 {
+		stroke-width: 1.95px;
+	}
+	.cls2 {
+		stroke-width: 1.31px;
+	}
+	.cls3 {
+		stroke-width: 1.32px;
+	}
+	.cls5 {
+		fill: #fff;
+	}
+}
+
+[data-id='slotGames'] {
+	.cls-1 {
+		fill: none;
+		stroke: currentColor;
+		stroke-miterlimit: 10;
+		stroke-width: 2.04px;
+	}
+}
+
+[data-id='tableGames'] {
+	.cls1 {
+		fill: #fff;
+	}
+}
